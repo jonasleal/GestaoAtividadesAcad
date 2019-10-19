@@ -1,0 +1,17 @@
+/.bundle
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/.idea
+/.idea *
+/public/assets
+/public/system/*
+.rvmrc
+
+/node_modules
+/yarn-error.log
+
+.byebug_history
