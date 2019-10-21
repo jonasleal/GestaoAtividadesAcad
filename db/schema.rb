@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20191019234303) do
 
   create_table "projetos", force: :cascade do |t|
@@ -18,6 +19,17 @@ ActiveRecord::Schema.define(version: 20191019234303) do
     t.date "dataFin"
     t.date "dataInicio"
     t.string "tipoProjeto"
+=======
+ActiveRecord::Schema.define(version: 20191019220400) do
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "email"
+    t.string "senha"
+    t.string "nome"
+    t.string "cpf"
+    t.string "curso"
+    t.string "especificao"
+>>>>>>> d9d814576d0ef900126c1060a3c14b5a7dd4a778
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
