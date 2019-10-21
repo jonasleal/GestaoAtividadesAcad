@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @projeto.titulo %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @projeto.area %>
+</p>
+
+<p>
+  <strong>Datafin:</strong>
+  <%= @projeto.dataFin %>
+</p>
+
+<p>
+  <strong>Datainicio:</strong>
+  <%= @projeto.dataInicio %>
+</p>
+
+<p>
+  <strong>Tipoprojeto:</strong>
+  <%= @projeto.tipoProjeto %>
+</p>
+
+<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+<%= link_to 'Back', projetos_path %>

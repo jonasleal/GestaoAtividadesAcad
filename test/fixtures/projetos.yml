@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  area: MyString
+  dataFin: 2019-10-19
+  dataInicio: 2019-10-19
+  tipoProjeto: MyString
+
+two:
+  titulo: MyString
+  area: MyString
+  dataFin: 2019-10-19
+  dataInicio: 2019-10-19
+  tipoProjeto: MyString
