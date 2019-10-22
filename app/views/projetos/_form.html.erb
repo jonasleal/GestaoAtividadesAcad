@@ -22,21 +22,21 @@
   </div>
 
   <div class="field">
-    <%= form.label :dataFin %>
-    <%= form.date_select :dataFin, id: :projeto_dataFin %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dataInicio %>
+    <%= form.label :dataInicio, value='Data de inicio' %>
     <%= form.date_select :dataInicio, id: :projeto_dataInicio %>
   </div>
 
   <div class="field">
-    <%= form.label :tipoProjeto %>
+    <%= form.label :dataFin, value='Data de termino' %>
+    <%= form.date_select :dataFin, id: :projeto_dataFin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipoProjeto, value='Natureza'%>
     <%= form.text_field :tipoProjeto, id: :projeto_tipoProjeto %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit value='Criar projeto' %>
   </div>
 <% end %>
