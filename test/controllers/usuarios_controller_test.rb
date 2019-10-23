@@ -34,7 +34,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update usuario" do
-    patch usuario_url(@usuario), params: { usuario: { cpf: @usuario.cpf, curso: @usuario.curso, email: @usuario.email, especificao: @usuario.especificao, nome: @usuario.nome, senha: @usuario.senha } }
+    patch usuario_url(@usuario), params: { usuario: { cpf: '00000000000', curso: 'BCC', email: 'jose34@.gmail.com', especificao: 'professor', nome: 'jose matias', senha: 'senhaValida12' } }
     assert_redirected_to usuario_url(@usuario)
   end
 
