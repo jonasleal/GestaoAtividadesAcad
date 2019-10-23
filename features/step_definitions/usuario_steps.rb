@@ -70,3 +70,14 @@ end
 Then('Eu vejo uma mensagem de erro') do
   assert_selector('div#error_explanation', text: "")
 end
+
+/Editar usuario com senha valida/
+
+When('Eu modifico a senha do usuario para {string}') do |senha|
+  fill_in 'usuario[senha]', :with => senha
+end
+
+Then('Eu vejo que o usuario com e-mail {string} foi atualizado com sucesso') do |email|
+  expect(page).to have_content('Usuario was successfully updated.')
+  expect(page).to have_content(email)
+end

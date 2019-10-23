@@ -20,3 +20,10 @@ Feature: Usuario
     When Eu modifico o e-mail do usuario para ''
     And Eu clico em editar usuario
     Then Eu vejo uma mensagem de erro
+
+  Scenario: editar usuario com senha valida
+    Given O usuario com email 'jose34@.gmail.com', senha 'senhaValida12', nome 'jose matias', cpf '00000000000', curso 'BCC', especificacao 'professor' existe
+    And Eu estou na pagina de editar usuario com email 'jose34@.gmail.com'
+    When Eu modifico a senha do usuario para 'meuCursoBCC'
+    And Eu clico em editar usuario
+    Then Eu vejo que o usuario com e-mail 'jose34@.gmail.com' foi atualizado com sucesso
