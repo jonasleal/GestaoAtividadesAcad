@@ -81,3 +81,5 @@ Then('Eu vejo que o usuario com e-mail {string} foi atualizado com sucesso') do 
   expect(page).to have_content('Usuario was successfully updated.')
   expect(page).to have_content(email)
 end
+
+/Criar usuario invalido com nome com caracteres especiais/

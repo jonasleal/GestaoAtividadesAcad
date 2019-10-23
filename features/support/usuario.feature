@@ -27,3 +27,14 @@ Feature: Usuario
     When Eu modifico a senha do usuario para 'meuCursoBCC'
     And Eu clico em editar usuario
     Then Eu vejo que o usuario com e-mail 'jose34@.gmail.com' foi atualizado com sucesso
+
+  Scenario: criar usuario invalido com nome com caracteres especiais
+    Given Eu abro a pagina de criar um usuario
+    When Eu preencho o usuario com e-mail 'jose34@.gmail.com'
+    And senha 'senhaValida12'
+    And nome 'jose@@##'
+    And cpf '00000000000'
+    And curso 'BCC'
+    And especificacao 'professor'
+    And  Eu clico em criar usuario
+    Then Eu vejo uma mensagem de erro
