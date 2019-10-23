@@ -25,7 +25,7 @@ class ProjetosController < ApplicationController
   # POST /projetos.json
   def create
     @projeto = Projeto.new(projeto_params)
-    @projeto.dataInicio=Date.today
+    @projeto.dataInicio=Time.zone.today
 
     respond_to do |format|
       if @projeto.save

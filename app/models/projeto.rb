@@ -9,7 +9,7 @@ class Projeto < ApplicationRecord
   validate :validarData
 
   def validarData
-    errors.add(:dataFin, "não pode ser antes da data de inicio") if dataFin < Date.today
+    errors.add(:dataFin, "não pode ser antes da data de inicio") if dataFin < dataInicio
   end
 
 
