@@ -15,4 +15,10 @@ class UsuarioTest < ActiveSupport::TestCase
     assert usuario.save
     assert_not usuario.update email: ''
   end
+
+  test 'editar usuario com senha valida' do
+    usuario = Usuario.new email: 'jose34@.gmail.com', senha: 'senhaValida12', nome: 'jose matias', cpf: '00000000000', curso: 'BCC', especificao: 'professor'
+    assert usuario.save
+    assert usuario.update senha: 'meuCursoBCC'
+  end
 end
