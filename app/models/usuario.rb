@@ -9,9 +9,9 @@ class Usuario < ApplicationRecord
   validates :senha, presence: {message: " nao pode ser em branco" },
             length: {minimum: 6,too_short: "deve ter pelo menos 6 caracteres" }
   validates :especificao, presence: {message: " nao pode ser em branco" },
-            length: {minimum: 5,too_short: "deve ter pelo menos 5 caracteres" }
+            length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
   validates :curso, presence: {message: " nao pode ser em branco" },
-            length: {minimum: 5,too_short: "deve ter pelo menos 5 caracteres" }
+            length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
   validates :email, presence: {message: " e-mail nao pode ser em branco" },
              format: { with: URI::MailTo::EMAIL_REGEXP, message: "apenas permite emails validos" }
 
