@@ -54,7 +54,7 @@ Given('O usuario com email {string}, senha {string}, nome {string}, cpf {string}
   expect(page).to have_content(email)
 end
 
-And('Eu estou na pagina de editar usuario com email {string}') do |email|
+And('Eu estou na pagina de editar do ultimo usuario criado') do
   visit '/usuarios/' + Usuario.last.id.to_s + '/edit'
   expect(page).to have_content('Editar Usuario')
 end
