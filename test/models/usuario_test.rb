@@ -21,4 +21,9 @@ class UsuarioTest < ActiveSupport::TestCase
     assert usuario.save
     assert usuario.update senha: 'meuCursoBCC'
   end
+
+  test 'criar usuario invalido' do
+    usuario = Usuario.new email: 'jose34@.gmail.com', senha: 'senhaValida12', nome: 'jose matias@@@@', cpf: '00000000000', curso: 'BCC', especificao: 'professor'
+    assert_not usuario.save
+  end
 end
