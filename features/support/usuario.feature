@@ -13,3 +13,10 @@ Feature: Usuario
     And especificacao 'professor'
     And  Eu clico em criar usuario
     Then Eu vejo que o usuario com e-mail 'jose34@.gmail.com' foi salvo
+
+  Scenario: editar usuario com e-mail em branco
+    Given O usuario com email 'jose34@.gmail.com', senha 'senhaValida12', nome 'jose matias', cpf '00000000000', curso 'BCC', especificacao 'professor' existe
+    And Eu estou na pagina de editar usuario com email 'jose34@.gmail.com'
+    When Eu modifico o e-mail do usuario para ''
+    And Eu clico em editar usuario
+    Then Eu vejo uma mensagem de erro
