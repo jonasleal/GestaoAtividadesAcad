@@ -22,4 +22,15 @@ Feature: Projeto
     And data de inicio '20/10/2019'
     And data de termino '31/10/2019'
     And Eu clico criar projeto
-    Then Eu vejo uma mensagem de titulo invalido
+    Then Eu vejo uma mensagem erro ao criar projeto
+
+
+  Scenario: criar novo Projeto com area em branco
+    Given Eu abro a pagina de criar Projeto
+    When Eu preencho o Projeto com titulo 'App mobile Ru'
+    And area ''
+    And natureza 'pesquisa de extensao'
+    And data de inicio '20/10/2019'
+    And data de termino '31/10/2019'
+    And Eu clico criar projeto
+    Then Eu vejo uma mensagem erro ao criar projeto
