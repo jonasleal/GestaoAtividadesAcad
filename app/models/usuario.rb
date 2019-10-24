@@ -1,9 +1,17 @@
 class Usuario < ApplicationRecord
-  validates :email, presence: true, length: {minimum: 5}
-  validates :senha, presence: true, length: {minimum: 5}
-  validates :nome, presence: true, length: {minimum: 5}
-  validates_format_of  :nome, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/
-  validates :cpf, presence: true, length: {minimum: 11}, :numericality => {:only_integer => true}
-  validates :curso, presence: true, length: {minimum: 3}
-  validates :especificao, presence: true, length: {minimum: 5}
+
+  validates :nome, presence: { message: "nao pode ser em branco ou conter acentuacao"},
+            length: { minimum: 3, too_short: "deve ter pelo menos 3 caracteres" },
+            format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/, message: "nao pode conter caracteres especiais ou numeros" }
+  validates :cpf, presence: { message: "nao pode ser em branco"},
+            length: { is:11, message:"deve ter 11 digitos"},
+            numericality: { only_integer:true,message:"deve conter apenas numeros" }
+  validates :senha, presence: {message: " nao pode ser em branco" },
+            length: {minimum: 6,too_short: "deve ter pelo menos 6 caracteres" }
+  validates :especificao, presence: {message: " nao pode ser em branco" },
+            length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
+  validates :curso, presence: {message: " nao pode ser em branco" },
+            length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
+  validates :email, presence: {message: " e-mail nao pode ser em branco" },
+             format: { with: URI::MailTo::EMAIL_REGEXP, message: "apenas permite emails validos" }
 end
