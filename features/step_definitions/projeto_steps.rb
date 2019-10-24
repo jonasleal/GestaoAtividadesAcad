@@ -34,3 +34,7 @@ end
 Then('Eu vejo que o projeto com titulo {string} foi criado') do |titulo|
   expect(page).to have_content(titulo)
 end
+
+Then('Eu vejo uma mensagem de titulo invalido') do
+  expect(page).to have_selector("div" , :id => "projeto_erro")
+end
