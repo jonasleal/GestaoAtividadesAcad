@@ -13,7 +13,6 @@ Feature: Projeto
     And Eu clico criar projeto
     Then Eu vejo que o projeto com titulo 'App mobile Ru' foi criado
 
-
   Scenario: criar novo Projeto com titulo em branco
     Given Eu abro a pagina de criar Projeto
     When Eu preencho o Projeto com titulo ''
@@ -44,3 +43,10 @@ Feature: Projeto
     And data de termino '31/10/2019'
     And Eu clico criar projeto
     Then Eu vejo uma mensagem erro ao criar projeto
+
+  Scenario: remover um projeto existente
+    Given O usuario com titulo 'App mobile Ru', area 'informatica',natureza 'pesquisa de extensao',data de inicio '20/10/2019',data de termino '31/10/2019'existe
+    And Eu estou na pagina de projetos
+    When Eu clico em remover projeto com titulo 'App mobile Ru'
+    Then Eu vejo que o  projeto com titulo 'App mobile Ru' foi removido
+

@@ -1,6 +1,6 @@
 Feature: Usuario
   As a usuario do sistema Gerenciamento de atividades academicas
-  I want to criar, remover, ver, editar e convidar para participar de um projeto
+  I want to criar, remover, ver e editar
   so that eu nao ter que fazer isso manualmente
 
   Scenario: criar usuario valido
@@ -38,3 +38,10 @@ Feature: Usuario
     And especificacao 'professor'
     And  Eu clico em criar usuario
     Then Eu vejo uma mensagem de erro
+
+  Scenario: remover um usuario existente
+    Given O usuario com email 'irisviana12@gmail.com', senha 'senhaValida12', nome 'iris silva', cpf '00000000000', curso 'BCC', especificacao 'professor' existe
+    And Eu estou na pagina de usuarios
+    When Eu clico em cancelar conta do usuario com email 'irisviana12@gmail.com'
+    Then Eu vejo que o usuairo com email 'irisviana12@gmail.com' foi removido
+
