@@ -1,0 +1,27 @@
+<%= form_with(model: [@projeto,@projeto.trabalhos.build], local: true) do |form| %>
+  <% if @projeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this trabalho from being saved:</h2>
+
+      <ul>
+        <% @projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :funcao %>
+    <%= form.select("funcao",['Estudante','Professor colaborador'])%>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.collection_select(:usuario_id , Usuario.all, :id, :email, prompt: true)%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

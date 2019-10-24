@@ -25,5 +25,11 @@
   <%= @projeto.tipoProjeto %>
 </p>
 
+<h2>Integrantes</h2>
+<%= render @projeto.trabalhos%>
+
+<h2>Adicionando integrantes:</h2>
+<%= render 'trabalhos/form' %>
+
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
