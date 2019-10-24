@@ -1,4 +1,6 @@
 class Projeto < ApplicationRecord
+  has_many :trabalhos ,dependent: :destroy
+  has_many :usuarios,:through=>:trabalhos
   #Validacoes
   validates :titulo, presence: {message: " nao pode ser em branco" },
             length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }

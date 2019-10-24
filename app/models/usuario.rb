@@ -1,5 +1,6 @@
 class Usuario < ApplicationRecord
-
+  has_many :trabalhos ,dependent: :destroy
+  has_many :projetos,:through=>:trabalhos
   validates :nome, presence: { message: "nao pode ser em branco ou conter acentuacao"},
             length: { minimum: 3, too_short: "deve ter pelo menos 3 caracteres" },
             format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/, message: "nao pode conter caracteres especiais ou numeros" }
