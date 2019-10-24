@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  funcao: MyString
+  projeto: one
+  usuario: one
+
+two:
+  funcao: MyString
+  projeto: two
+  usuario: two
