@@ -82,4 +82,19 @@ Then('Eu vejo que o usuario com e-mail {string} foi atualizado com sucesso') do 
   expect(page).to have_content(email)
 end
 
-/Criar usuario invalido com nome com caracteres especiais/
+Given("Eu estou na pagina de usuarios") do
+  visit '/usuarios'
+  expect(page).to have_current_path('/usuarios')
+end
+
+When("Eu clico em cancelar conta do usuario com email {string}") do |email|
+  click_link "d-#{email}"
+end
+
+Then("Eu vejo que o usuairo com email {string} foi removido") do |email|
+  visit '/usuarios'
+  expect(page).to have_no_content(email)
+end
+
+
+

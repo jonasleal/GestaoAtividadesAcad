@@ -24,9 +24,9 @@
         <td><%= usuario.cpf %></td>
         <td><%= usuario.curso %></td>
         <td><%= usuario.especificao %></td>
-        <td><%= link_to 'Show', usuario %></td>
+        <td><%= link_to 'Show', usuario ,id:"v-#{usuario}"%></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy',usuario_path(usuario),id:"d-#{usuario.email}" ,method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
