@@ -8,8 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -44,6 +43,7 @@ group :development, :test do
   gem 'rspec', '~> 3.7.0'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'sqlite3', '~> 1.3.6'
 
 end
 
@@ -51,6 +51,9 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end
-
+group :production do
+  gem 'pg', '~> 1.1.2-x64-mingw32' # use PostgreSQL in production (Heroku)
+  gem 'rails_12factor' # Heroku-specific production settings
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
