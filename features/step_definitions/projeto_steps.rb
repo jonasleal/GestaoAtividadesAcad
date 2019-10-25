@@ -45,6 +45,8 @@ Given("O usuario com titulo {string}, area {string},natureza {string},data de in
   fill_in 'projeto[titulo]', :with => titulo
   fill_in 'projeto[area]', :with => area
   fill_in 'projeto[tipoProjeto]', :with => natureza
+  fill_in 'projeto[dataInicio]', :with => dataInicio
+  fill_in 'projeto[dataFin]', :with => dataFim
   click_button 'Create Projeto'
   expect(page).to have_content('Projeto was successfully created.')
   expect(page).to have_content(titulo)
