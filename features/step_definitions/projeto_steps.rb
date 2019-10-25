@@ -17,14 +17,14 @@ end
 
 And('data de inicio {string}') do |dataInicio|
   data = Date.strptime(dataInicio, '%d/%m/%Y')
-  strData = data.strftime("%Y/%B/%d/")
-  select_date(strData,:from => "Data de inicio")
+  strData = data.strftime('%Y/%B/%d/')
+  select_date(strData,:from => 'Data de inicio')
 end
 
 And('data de termino {string}') do |dataFim|
   data = Date.strptime(dataFim, '%d/%m/%Y')
-  strData = data.strftime("%Y/%B/%d/")
-  select_date(strData,:from => "Data de inicio")
+  strData = data.strftime('%Y/%B/%d/')
+  select_date(strData,:from => 'Data de termino')
 end
 
 And('Eu clico criar projeto') do
@@ -36,5 +36,30 @@ Then('Eu vejo que o projeto com titulo {string} foi criado') do |titulo|
 end
 
 Then('Eu vejo uma mensagem erro ao criar projeto') do
-  expect(page).to have_selector("div" , :id => "projeto_erro")
+  expect(page).to have_selector('div' , :id => 'projeto_erro')
+end
+
+Given('Existe o projeto com titulo {string}, area {string},natureza {string}') do |titulo,area,natureza|
+  visit 'projetos/new'
+  expect(page).to have_content('Novo projeto')
+  fill_in 'projeto[titulo]', :with => titulo
+  fill_in 'projeto[area]', :with => area
+  fill_in 'projeto[tipoProjeto]', :with => natureza
+  click_button 'Criar projeto'
+  expect(page).to have_content('Projeto was successfully created.')
+  expect(page).to have_content(titulo)
+end
+
+Given('Eu estou na pagina de projetos') do
+  visit '/projetos'
+  expect(page).to have_current_path('/projetos')
+end
+
+When('Eu clico em remover projeto com titulo {string}') do |titulo|
+  click_link "d-#{titulo}"
+end
+
+Then('Eu vejo que o  projeto com titulo {string} foi removido') do |titulo|
+  visit '/projetos'
+  expect(page).to have_no_content(titulo)
 end

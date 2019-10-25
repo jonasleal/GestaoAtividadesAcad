@@ -23,8 +23,8 @@
         <td><%= projeto.dataInicio %></td>
         <td><%= projeto.tipoProjeto %></td>
         <td><%= link_to 'Show', projeto %></td>
-        <td><%= link_to 'Edit', edit_projeto_path(projeto) %></td>
-        <td><%= link_to 'Destroy', projeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_projeto_path(projeto)%></td>
+        <td><%= link_to 'Destroy', projeto,id:"d-#{projeto.titulo}", method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
