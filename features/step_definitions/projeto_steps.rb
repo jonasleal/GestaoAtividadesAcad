@@ -24,7 +24,7 @@ end
 And('data de termino {string}') do |dataFim|
   data = Date.strptime(dataFim, '%d/%m/%Y')
   strData = data.strftime("%Y/%B/%d/")
-  select_date(strData,:from => "Data de inicio")
+  select_date(strData,:from => "Data de termino")
 end
 
 And('Eu clico criar projeto') do
@@ -40,14 +40,18 @@ Then('Eu vejo uma mensagem erro ao criar projeto') do
 end
 
 Given("O usuario com titulo {string}, area {string},natureza {string},data de inicio {string},data de termino {string}existe") do |titulo,area,natureza, dataInicio,dataFim|
-  visit '/projetos/new'
-  expect(page).to have_content('Novo Projeto')
+  visit 'projetos/new'
+  expect(page).to have_content('Novo projeto')
   fill_in 'projeto[titulo]', :with => titulo
   fill_in 'projeto[area]', :with => area
   fill_in 'projeto[tipoProjeto]', :with => natureza
-  fill_in 'projeto[dataInicio]', :with => dataInicio
-  fill_in 'projeto[dataFin]', :with => dataFim
-  click_button 'Create Projeto'
+  data = Date.strptime(dataInicio, '%d/%m/%Y')
+  strData = data.strftime("%Y/%B/%d/")
+  select_date(strData,:from => "Data de inicio")
+  data = Date.strptime(dataFim, '%d/%m/%Y')
+  strData = data.strftime("%Y/%B/%d/")
+  select_date(strData,:from => "Data de termino")
+  click_button 'Criar projeto'
   expect(page).to have_content('Projeto was successfully created.')
   expect(page).to have_content(titulo)
 end
