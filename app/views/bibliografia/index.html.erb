@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bibliografia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bibliografia.each do |bibliografium| %>
+      <tr>
+        <td><%= bibliografium.titulo %></td>
+        <td><%= bibliografium.descricao %></td>
+        <td><%= link_to 'Show', bibliografium %></td>
+        <td><%= link_to 'Edit', edit_bibliografium_path(bibliografium) %></td>
+        <td><%= link_to 'Destroy', bibliografium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bibliografium', new_bibliografium_path %>
