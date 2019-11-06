@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @bibliografium.titulo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @bibliografium.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_bibliografium_path(@bibliografium) %> |
+<%= link_to 'Back', bibliografia_path %>
