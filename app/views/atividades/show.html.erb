@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @atividade.titulo %>
+</p>
+
+<p>
+  <strong>Datainicio:</strong>
+  <%= @atividade.dataInicio %>
+</p>
+
+<p>
+  <strong>Datafim:</strong>
+  <%= @atividade.dataFim %>
+</p>
+
+<p>
+  <strong>Cargaprev:</strong>
+  <%= @atividade.cargaPrev %>
+</p>
+
+<p>
+  <strong>Cargareal:</strong>
+  <%= @atividade.cargaReal %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @atividade.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_atividade_path(@atividade) %> |
+<%= link_to 'Back', atividades_path %>
