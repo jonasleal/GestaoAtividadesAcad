@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   resources :atividades
   get 'welcome/index'
   resources :projetos do

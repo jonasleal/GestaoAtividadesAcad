@@ -44,6 +44,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'sqlite3', '~> 1.3.6'
+  gem 'devise'
 
 end
 
