@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  dataInicio: 2019-11-06
+  dataFim: 2019-11-06
+  cargaPrev: 1
+  cargaReal: 1
+  descricao: MyText
+
+two:
+  titulo: MyString
+  dataInicio: 2019-11-06
+  dataFim: 2019-11-06
+  cargaPrev: 1
+  cargaReal: 1
+  descricao: MyText
