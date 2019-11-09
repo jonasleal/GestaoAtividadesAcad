@@ -1,0 +1,2 @@
+module HistoricoAtividadesHelper
+end
