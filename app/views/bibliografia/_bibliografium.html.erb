@@ -1,0 +1,13 @@
+<p>
+  <strong>Titulo:</strong>
+  <%= bibliografium.titulo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= bibliografium.descricao %>
+</p>
+<%= link_to 'Destroy bibliografia', [bibliografium.projeto,bibliografium],
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+</p>

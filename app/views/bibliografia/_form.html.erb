@@ -1,10 +1,10 @@
-<%= form_with(model: bibliografium, local: true) do |form| %>
-  <% if bibliografium.errors.any? %>
+<%= form_with(model:[@projeto,@projeto.bibliografia.build], local: true) do |form| %>
+  <% if @projeto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(bibliografium.errors.count, "error") %> prohibited this bibliografium from being saved:</h2>
+      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this bibliografium from being saved:</h2>
 
       <ul>
-      <% bibliografium.errors.full_messages.each do |message| %>
+      <% @projeto.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

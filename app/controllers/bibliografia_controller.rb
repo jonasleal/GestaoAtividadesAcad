@@ -24,16 +24,10 @@ class BibliografiaController < ApplicationController
   # POST /bibliografia
   # POST /bibliografia.json
   def create
-    @bibliografium = Bibliografium.new(bibliografium_params)
-
-    respond_to do |format|
-      if @bibliografium.save
-        format.html { redirect_to @bibliografium, notice: 'Bibliografium was successfully created.' }
-        format.json { render :show, status: :created, location: @bibliografium }
-      else
-        format.html { render :new }
-        format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
-      end
+    @projeto = Projeto.find(params[:projeto_id])
+    @bibliografium =  @projeto.bibliografia.create(bibliografium_params)
+    if @bibliografium .save
+      redirect_to projeto_path(@projeto), {notice: 'Bibliografium was successfully created.' }
     end
   end
 
@@ -54,11 +48,10 @@ class BibliografiaController < ApplicationController
   # DELETE /bibliografia/1
   # DELETE /bibliografia/1.json
   def destroy
+    @projeto = Projeto.find(params[:projeto_id])
+    @bibliografium =  @projeto.bibliografia.find(params[:id])
     @bibliografium.destroy
-    respond_to do |format|
-      format.html { redirect_to bibliografia_url, notice: 'Bibliografium was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to projeto_path(@projeto)
   end
 
   private
@@ -69,6 +62,6 @@ class BibliografiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bibliografium_params
-      params.require(:bibliografium).permit(:titulo, :descricao)
+      params.require(:bibliografium).permit(:titulo,:descricao,:projeto_id,)
     end
 end
