@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :bibliografia
+  resources :historico_atividades
+  resources :atividades
   get 'welcome/index'
   resources :projetos do
     resources :trabalhos

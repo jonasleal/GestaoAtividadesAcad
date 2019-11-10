@@ -1,0 +1,2 @@
+class HistoricoAtividade < ApplicationRecord
+end
