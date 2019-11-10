@@ -36,7 +36,7 @@ Then('Eu vejo que o projeto com titulo {string} foi criado') do |titulo|
 end
 
 Then('Eu vejo uma mensagem erro ao criar projeto') do
-  expect(page).to have_selector('div' , :id => 'projeto_erro')
+  expect(page).to have_selector('div', :id => 'projeto_erro')
 end
 
 Given("O usuario com titulo {string}, area {string},natureza {string},data de inicio {string},data de termino {string} existe") do |titulo,area,natureza, dataInicio,dataFim|

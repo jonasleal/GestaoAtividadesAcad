@@ -26,7 +26,7 @@ And('curso {string}') do |curso|
 end
 
 And('especificacao {string}') do |especificacao|
-  fill_in 'usuario[especificao]', :with => especificacao
+  select(:text => especificacao, from: 'usuario[especificao]')
 end
 
 And('Eu clico em criar usuario') do
@@ -48,7 +48,7 @@ Given('O usuario com email {string}, senha {string}, nome {string}, cpf {string}
   fill_in 'usuario[nome]', :with => nome
   fill_in 'usuario[cpf]', :with => cpf
   fill_in 'usuario[curso]', :with => curso
-  fill_in 'usuario[especificao]', :with => especificacao
+  select(:text => especificacao, from: 'usuario[especificao]')
   click_button 'Create Usuario'
   expect(page).to have_content('Usuario was successfully created.')
   expect(page).to have_content(email)
