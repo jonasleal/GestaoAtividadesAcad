@@ -24,16 +24,11 @@ class AtividadesController < ApplicationController
   # POST /atividades
   # POST /atividades.json
   def create
-    @atividade = Atividade.new(atividade_params)
 
-    respond_to do |format|
-      if @atividade.save
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully created.' }
-        format.json { render :show, status: :created, location: @atividade }
-      else
-        format.html { render :new }
-        format.json { render json: @atividade.errors, status: :unprocessable_entity }
-      end
+    @projeto = Projeto.find(params[:projeto_id])
+    @atividade =  @projeto.atividades.create(atividade_params)
+    if @atividade.save
+      redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
     end
   end
 
@@ -69,6 +64,6 @@ class AtividadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def atividade_params
-      params.require(:atividade).permit(:titulo, :dataInicio, :dataFim, :cargaPrev, :cargaReal, :descricao)
+      params.require(:atividade).permit(:titulo, :dataInicio, :dataFim, :cargaPrev, :cargaReal, :descricao,:projeto_id)
     end
 end

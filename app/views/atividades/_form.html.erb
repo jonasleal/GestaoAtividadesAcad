@@ -1,10 +1,10 @@
-<%= form_with(model: atividade, local: true) do |form| %>
-  <% if atividade.errors.any? %>
+<%= form_with(model: [@projeto,@projeto.atividades.build], local: true) do |form| %>
+  <% if @projeto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(atividade.errors.count, "error") %> prohibited this atividade from being saved:</h2>
+      <h2><%= pluralize(projeto.errors.count, "error") %> prohibited this atividade from being saved:</h2>
 
       <ul>
-      <% atividade.errors.full_messages.each do |message| %>
+      <% @projeto.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
