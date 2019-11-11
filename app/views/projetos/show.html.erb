@@ -30,13 +30,24 @@
 <h2>Adicionando integrantes:</h2>
 <%= render 'trabalhos/form' %>
 <p>
+
 <h2>Bibliográfias</h2>
 <%=  render @projeto.bibliografia%>
-
-  </p>
+</p>
 
 <h2>Adicionando bibliografias:</h2>
 <%= render 'bibliografia/form' %>
+
+<h2>Lista de  Atividades:</h2>
+<%= render @projeto.atividades %>
+<p>
+
+<h2>Adicionando Atividades:</h2>
+<%= render 'atividades/form' %>
+<p>
+
+
+
 
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
