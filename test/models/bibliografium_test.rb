@@ -10,4 +10,11 @@ class BibliografiumTest < ActiveSupport::TestCase
     bibliografia = Bibliografium.new titulo: "teste", descricao: "teste", projeto_id:projeto.id
     assert bibliografia.save
   end
+
+  test 'criar bibliografia com titulo em branco' do
+    projeto= Projeto.new titulo:"Gestao de projeto", area:"Informatica", dataFin:"20/10/2020", dataInicio:"20/10/2019", tipoProjeto:"tcc"
+    assert projeto.save
+    bibliografia = Bibliografium.new titulo: "", descricao: "teste", projeto_id:projeto.id
+    assert_not bibliografia.save
+  end
 end
