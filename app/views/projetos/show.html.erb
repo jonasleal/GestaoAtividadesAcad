@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2 id="alert" style="font-weight: bold; color: red"><%= alert %></h2>
+
 <p>
   <strong>Titulo:</strong>
   <%= @projeto.titulo %>
@@ -24,12 +26,27 @@
   <strong>Tipoprojeto:</strong>
   <%= @projeto.tipoProjeto %>
 </p>
-
 <h2>Integrantes</h2>
 <%= render @projeto.trabalhos%>
 
 <h2>Adicionando integrantes:</h2>
 <%= render 'trabalhos/form' %>
+<p>
+
+<h2>Bibliográfias</h2>
+<%=  render @projeto.bibliografia%>
+</p>
+
+<h2>Adicionando bibliografias:</h2>
+<%= render 'bibliografia/form' %>
+
+<h2>Lista de  Atividades:</h2>
+<%= render @projeto.atividades %>
+<p>
+
+<h2>Adicionando Atividades:</h2>
+<%= render 'atividades/form' %>
+<p>
 
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
