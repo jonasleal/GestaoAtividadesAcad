@@ -39,7 +39,7 @@ Then('Eu vejo uma mensagem erro ao criar projeto') do
   expect(page).to have_selector('div' , :id => 'projeto_erro')
 end
 
-Given("O usuario com titulo {string}, area {string},natureza {string},data de inicio {string},data de termino {string} existe") do |titulo,area,natureza, dataInicio,dataFim|
+Given("O projeto com titulo {string}, area {string},natureza {string},data de inicio {string},data de termino {string} existe") do |titulo,area,natureza, dataInicio,dataFim|
   visit 'projetos/new'
   expect(page).to have_content('Novo projeto')
   fill_in 'projeto[titulo]', :with => titulo

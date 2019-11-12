@@ -25,8 +25,6 @@ class ProjetosController < ApplicationController
   # POST /projetos.json
   def create
     @projeto = Projeto.new(projeto_params)
-    @projeto.dataInicio=Time.zone.today
-
     respond_to do |format|
       if @projeto.save
         format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }
