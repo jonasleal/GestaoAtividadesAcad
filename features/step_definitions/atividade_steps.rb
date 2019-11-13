@@ -64,3 +64,17 @@ end
 Then('Eu vejo que a atividade com titulo {string} foi criado') do |titulo|
   expect(page).to have_content(titulo)
 end
+
+And('no projeto {string} a atividade com titulo {string} existe') do |tituloProj, tituloAtiv|
+  criarAtividade(tituloProj,tituloAtiv,(Date.current + 1.day).strftime('%Y/%B/%d/'),
+                 (Date.current + 10.day).strftime('%Y/%B/%d/'), "10", "Entrega da primeira atividade")
+
+end
+
+When('clico em editar da atividade com titulo {string}') do |titulo|
+  click_link "e-#{titulo}"
+end
+
+And('clico no botão atualizar') do
+  click_button 'atuAtividade'
+end

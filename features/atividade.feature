@@ -13,3 +13,11 @@ Feature: Projeto
     And descrição da atividade com 'primeira entrega'
     And clico no botão Adicionar
     Then Eu vejo que a atividade com titulo 'Primeira atividade' foi criado
+
+  Scenario: editar titulo de atividade
+    Given O projeto com titulo 'App mobile Ru' existe
+    And no projeto 'App mobile Ru' a atividade com titulo 'Primeira atividade' existe
+    When clico em editar da atividade com titulo 'Primeira atividade'
+    And apreencho o campo Titulo de atividade com 'Atividade corrigida'
+    And clico no botão atualizar
+    Then Eu vejo que a atividade com titulo 'Atividade corrigida' foi criado
