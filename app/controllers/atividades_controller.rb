@@ -30,11 +30,12 @@ class AtividadesController < ApplicationController
     @atividade = @projeto.atividades.create(atividade_params)
 
     @atividade.cargaReal= 0
-
-    if @atividade.save
-      redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
-    else
-      redirect_to projeto_path(@projeto),{notice: @atividade.errors}
+    respond_to do |format|
+      if @atividade.save
+        format.html { redirect_to projeto_path(@projeto), notice: 'Atividade was successfully created.' }
+      else
+        format.html { redirect_to projeto_path(@projeto), alert: "Erro ao adicionar Atividade"}
+      end
     end
   end
 
