@@ -32,7 +32,7 @@ class BibliografiaController < ApplicationController
         format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografium was successfully created.' }
         #format.json { render :show, status: :ok, location: projeto_path(@projeto) }
       else
-        format.html { redirect_to projeto_path(@projeto), :flash => { :error => @bibliografium.errors }, alert: "Erro ao adicionar bibliografia"}
+        format.html { redirect_to projeto_path(@projeto), alert: "Erro ao adicionar bibliografia"}
         #format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
       end
     end
