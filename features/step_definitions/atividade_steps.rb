@@ -78,3 +78,12 @@ end
 And('clico no botão atualizar') do
   click_button 'atuAtividade'
 end
+
+
+When('clico em excluir da atividade com titulo {string}') do |titulo|
+  click_link "d-#{titulo}"
+end
+
+Then('Eu vejo que a atividade com titulo {string} foi apagada') do |titulo|
+  expect(page).to have_no_content(titulo)
+end

@@ -21,3 +21,9 @@ Feature: Projeto
     And apreencho o campo Titulo de atividade com 'Atividade corrigida'
     And clico no botão atualizar
     Then Eu vejo que a atividade com titulo 'Atividade corrigida' foi criado
+
+  Scenario: remover atividade existente
+    Given O projeto com titulo 'App mobile Ru' existe
+    And no projeto 'App mobile Ru' a atividade com titulo 'Primeira atividade' existe
+    When clico em excluir da atividade com titulo 'Primeira atividade'
+    Then Eu vejo que a atividade com titulo 'Primeira atividade' foi apagada
