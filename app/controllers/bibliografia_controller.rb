@@ -27,6 +27,7 @@ class BibliografiaController < ApplicationController
     @projeto = Projeto.find(params[:projeto_id])
     @bibliografium =  @projeto.bibliografia.create(bibliografium_params)
 
+
     respond_to do |format|
       if @bibliografium.save
         format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografium was successfully created.' }
@@ -36,6 +37,7 @@ class BibliografiaController < ApplicationController
         #format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /bibliografia/1

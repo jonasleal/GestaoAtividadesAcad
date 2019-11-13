@@ -33,6 +33,8 @@ class AtividadesController < ApplicationController
 
     if @atividade.save
       redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
+    else
+      redirect_to projeto_path(@projeto),{notice: @atividade.errors}
     end
   end
 

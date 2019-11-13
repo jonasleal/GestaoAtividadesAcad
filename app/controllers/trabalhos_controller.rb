@@ -5,6 +5,8 @@ class TrabalhosController < ApplicationController
 
     if @trabalho.save
       redirect_to projeto_path(@projeto), {notice: 'Trabalho was successfully created.' }
+    else
+      redirect_to projeto_path(@projeto),{notice:@trabalho.errors}
     end
   end
 
