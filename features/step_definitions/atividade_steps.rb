@@ -87,3 +87,8 @@ end
 Then('Eu vejo que a atividade com titulo {string} foi apagada') do |titulo|
   expect(page).to have_no_content(titulo)
 end
+
+
+Then('Eu vejo uma mensagem de erro de atividade') do
+  assert_selector('h2#alert', text: "")
+end

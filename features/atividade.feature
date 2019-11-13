@@ -14,6 +14,17 @@ Feature: Projeto
     And clico no botão Adicionar
     Then Eu vejo que a atividade com titulo 'Primeira atividade' foi criado
 
+  Scenario: adicionar atividade sem titulo
+    Given O projeto com titulo 'App mobile Ru' existe
+    When Eu visualizo o Projeto com titulo 'App mobile Ru'
+    And apreencho o campo Titulo de atividade com ''
+    And data de inicio da ativade com '13/11/2020'
+    And data de termino da atividade com '20/11/2020'
+    And carga prevista da atividade com '10'
+    And descrição da atividade com 'primeira entrega'
+    And clico no botão Adicionar
+    Then Eu vejo uma mensagem de erro de atividade
+
   Scenario: editar titulo de atividade
     Given O projeto com titulo 'App mobile Ru' existe
     And no projeto 'App mobile Ru' a atividade com titulo 'Primeira atividade' existe
