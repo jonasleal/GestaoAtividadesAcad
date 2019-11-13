@@ -8,8 +8,8 @@ Feature: Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area 'informatica'
     And natureza 'pesquisa de extensao'
-    And data de inicio '20/10/2019'
-    And data de termino '31/10/2019'
+    And data de inicio '20/11/2019'
+    And data de termino '30/11/2019'
     And Eu clico criar projeto
     Then Eu vejo que o projeto com titulo 'App mobile Ru' foi criado
 
@@ -18,8 +18,8 @@ Feature: Projeto
     When Eu preencho o Projeto com titulo ''
     And area 'informatica'
     And natureza 'pesquisa de extensao'
-    And data de inicio '20/10/2019'
-    And data de termino '31/10/2019'
+    And data de inicio '20/11/2019'
+    And data de termino '30/11/2019'
     And Eu clico criar projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
@@ -29,8 +29,8 @@ Feature: Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area ''
     And natureza 'pesquisa de extensao'
-    And data de inicio '20/10/2019'
-    And data de termino '31/10/2019'
+    And data de inicio '20/11/2019'
+    And data de termino '30/11/2019'
     And Eu clico criar projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
@@ -39,8 +39,8 @@ Feature: Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area 'informatica'
     And natureza ''
-    And data de inicio '20/10/2019'
-    And data de termino '31/10/2019'
+    And data de inicio '20/11/2019'
+    And data de termino '30/11/2019'
     And Eu clico criar projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
@@ -49,8 +49,8 @@ Feature: Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area 'informatica'
     And natureza 'pesquisa de extensao'
-    And data de inicio '20/10/2019'
-    And data de termino '19/10/2019'
+    And data de inicio '10/11/2019'
+    And data de termino '06/11/2019'
     And Eu clico criar projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 

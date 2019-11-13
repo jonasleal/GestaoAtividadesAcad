@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :cpf %>
-    <%= form.number_field :cpf, id: :usuario_cpf %>
+    <%= form.text_field :cpf, id: :usuario_cpf %>
   </div>
 
   <div class="field">
@@ -37,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :especificao %>
-    <%= form.text_field :especificao, id: :usuario_especificao %>
+    <%= form.label "Especificação" %>
+    <%= form.select :especificao, ['Estudante','Professor Colaborador'], id: :usuario_especificao%>
   </div>
 
   <div class="actions">
