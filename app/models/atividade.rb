@@ -8,6 +8,8 @@ class Atividade < ApplicationRecord
             length: {minimum: 3,too_short: "Mínimo de 3 caracteres" }
   validate :validarDataInicio
   validate :validarDataFim
+  validate :cargaPrevNegativo
+  validate :cargaRealNegativo
   validates :cargaPrev, presence: {message: "Campo obrigatório" },
             numericality: { only_integer:true,message:"Deve conter apenas números" }
   validates :cargaReal, presence: {message: "Campo obrigatório" },
@@ -15,7 +17,12 @@ class Atividade < ApplicationRecord
   validates :descricao, presence: {message: "Campo obrigatório" },
             length: {minimum: 5,too_short: "Mínimo de 5 caracteres" }
 
-
+  def cargaPrevNegativo
+    errors.add(:cargaPrev, "A carga horaria prevista nao pode ser negativa") if cargaPrev.to_i.negative?
+  end
+  def cargaRealNegativo
+  errors.add(:cargaReal, "A carga horaria realizada nao pode ser negativa") if cargaReal.to_i.negative?
+end
   def validarDataInicio
     errors.add(:dataInicio, "A data de inicio não pode ser no passado") if dataInicio < Date.current
   end
