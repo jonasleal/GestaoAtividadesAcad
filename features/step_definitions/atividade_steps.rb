@@ -33,7 +33,7 @@ When('Eu visualizo o Projeto com titulo {string}') do |titulo|
   expect(page).to have_content('Adicionando Atividades:')
 end
 
-And('apreencho o campo Titulo de atividade com {string}') do |titulo|
+And('preencho o campo Titulo de atividade com {string}') do |titulo|
   fill_in 'atividade[titulo]', with: titulo
 end
 
@@ -49,7 +49,7 @@ And('data de termino da atividade com {string}') do |dataFim|
   select_date(strData,:from => 'Data de termino')
 end
 
-And('carga prevista da atividade com {string}') do |cargaPrev|
+And('preencho carga prevista da atividade com {string}') do |cargaPrev|
   fill_in 'atividade[cargaPrev]', with: cargaPrev
 end
 
@@ -86,4 +86,14 @@ end
 
 Then('Eu vejo que a atividade com titulo {string} foi apagada') do |titulo|
   expect(page).to have_no_content(titulo)
+end
+
+
+Then('Eu vejo uma mensagem de erro de atividade') do
+  assert_selector('h2#alert', text: "")
+end
+
+
+And('preencho carga realizada da atividade com {string}') do |cargaReal|
+  fill_in 'atividade[cargaReal]', with: cargaReal
 end
