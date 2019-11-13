@@ -29,9 +29,9 @@ class AtividadesController < ApplicationController
     @atividade = @projeto.atividades.create(atividade_params)
     @atividade.cargaReal= 0
 
-    if @atividade.save
-      redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
-    end
+    #if @atividade.save
+     # redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
+    #end
 
     respond_to do |format|
       if @atividade.save
