@@ -27,6 +27,7 @@ class AtividadesController < ApplicationController
 
     @projeto = Projeto.find(params[:projeto_id])
     @atividade = @projeto.atividades.create(atividade_params)
+    @atividade.cargaReal= 0
     if @atividade.save
       redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
     end
@@ -58,12 +59,12 @@ class AtividadesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_atividade
-      @atividade = Atividade.find(params[:id])
-    end
+  def set_atividade
+    @atividade = Atividade.find(params[:id])
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def atividade_params
-      params.require(:atividade).permit(:titulo, :dataInicio, :dataFim, :cargaPrev, :cargaReal, :descricao,:projeto_id)
-    end
+  def atividade_params
+    params.require(:atividade).permit(:titulo, :dataInicio, :dataFim, :cargaPrev, :cargaReal, :descricao,:projeto_id)
+  end
 end
