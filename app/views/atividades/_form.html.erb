@@ -17,22 +17,22 @@
   </div>
 
   <div class="field">
-    <%= form.label :dataInicio %>
+    <%= form.label :dataInicio, value='Data de inicio'  %>
     <%= form.date_select :dataInicio, id: :atividade_dataInicio %>
   </div>
 
   <div class="field">
-    <%= form.label :dataFim %>
+    <%= form.label :dataFim, value='Data de termino'  %>
     <%= form.date_select :dataFim, id: :atividade_dataFim %>
   </div>
 
   <div class="field">
-    <%= form.label :cargaPrev %>
+    <%= form.label :cargaPrev, value= "Carga prevista" %>
     <%= form.number_field :cargaPrev, id: :atividade_cargaPrev %>
   </div>
 
   <div class="field">
-    <%= form.label :cargaReal %>
+    <%= form.label :cargaReal, value= "Carga realizada"%>
     <%= form.number_field :cargaReal, id: :atividade_cargaReal %>
   </div>
 
@@ -42,6 +42,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit value="Adicionar", id: :adcAtividade%>
   </div>
 <% end %>
