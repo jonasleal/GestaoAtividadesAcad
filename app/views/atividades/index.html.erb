@@ -24,9 +24,9 @@
         <td><%= atividade.cargaPrev %></td>
         <td><%= atividade.cargaReal %></td>
         <td><%= atividade.descricao %></td>
-        <td><%= link_to 'Show', atividade %></td>
+        <td><%= link_to 'Show', atividade , id: "s-#{atividade.titulo}"%></td>
         <td><%= link_to 'Edit', edit_atividade_path(atividade) %></td>
-        <td><%= link_to 'Destroy', atividade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', atividade, id: "d-#{atividade.titulo}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

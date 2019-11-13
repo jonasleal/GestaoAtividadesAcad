@@ -9,7 +9,9 @@
 
 <%= link_to 'Deletar Atividade', [atividade.projeto,atividade],
             method: :delete,
-            data: { confirm: 'Are you sure?' } %>
+            id: "d-#{atividade.titulo}"%>
 
-<td><%= link_to 'Edit', edit_projeto_atividade_path(atividade) %></td>
-<td><%= link_to 'Show', projeto_atividade_path(atividade) %></td>
+<td><%= link_to 'Edit', edit_projeto_atividade_path(atividade),
+                id: "e-#{atividade.titulo}"%></td>
+<td><%= link_to 'Show', projeto_atividade_path(atividade),
+                id: "s-#{atividade.titulo}"%></td>

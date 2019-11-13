@@ -22,7 +22,7 @@
         <td><%= projeto.dataFin %></td>
         <td><%= projeto.dataInicio %></td>
         <td><%= projeto.tipoProjeto %></td>
-        <td><%= link_to 'Show', projeto %></td>
+        <td><%= link_to 'Show', projeto, id:"s-#{projeto.titulo}" %></td>
         <td><%= link_to 'Edit', edit_projeto_path(projeto)%></td>
         <td><%= link_to 'Destroy', projeto,id:"d-#{projeto.titulo}", method: :delete %></td>
       </tr>
