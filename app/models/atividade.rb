@@ -12,7 +12,7 @@ class Atividade < ApplicationRecord
             numericality: { only_integer:true,message:"Deve conter apenas números" }
   validates :cargaReal, presence: {message: "Campo obrigatório" },
             numericality: { only_integer:true,message:"Deve conter apenas números" }
-  validates :titulo, presence: {message: "Campo obrigatório" },
+  validates :descricao, presence: {message: "Campo obrigatório" },
             length: {minimum: 5,too_short: "Mínimo de 5 caracteres" }
 
 
