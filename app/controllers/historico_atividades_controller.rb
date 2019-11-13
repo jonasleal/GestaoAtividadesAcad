@@ -1,5 +1,5 @@
 class HistoricoAtividadesController < ApplicationController
-  before_action :set_historico_atividade, only: [:show, :edit, :update, :destroy]
+  before_action :set_historico_atividade, only: [:show, :edit]
 
   # GET /historico_atividades
   # GET /historico_atividades.json
@@ -24,41 +24,11 @@ class HistoricoAtividadesController < ApplicationController
   # POST /historico_atividades
   # POST /historico_atividades.json
   def create
-    @historico_atividade = HistoricoAtividade.new(historico_atividade_params)
-
-    respond_to do |format|
-      if @historico_atividade.save
-        format.html { redirect_to @historico_atividade, notice: 'Historico atividade was successfully created.' }
-        format.json { render :show, status: :created, location: @historico_atividade }
-      else
-        format.html { render :new }
-        format.json { render json: @historico_atividade.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /historico_atividades/1
-  # PATCH/PUT /historico_atividades/1.json
-  def update
-    respond_to do |format|
-      if @historico_atividade.update(historico_atividade_params)
-        format.html { redirect_to @historico_atividade, notice: 'Historico atividade was successfully updated.' }
-        format.json { render :show, status: :ok, location: @historico_atividade }
-      else
-        format.html { render :edit }
-        format.json { render json: @historico_atividade.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /historico_atividades/1
-  # DELETE /historico_atividades/1.json
-  def destroy
-    @historico_atividade.destroy
-    respond_to do |format|
-      format.html { redirect_to historico_atividades_url, notice: 'Historico atividade was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    #@atividade =Atividade.find(params[:atividade_id])
+    #@historico_atividade =  @atividade.historico_atividades.create(historico_atividade_params)
+    #if @historico_atividade.save
+     # redirect_to atividade_path(@atividade), {notice: ' status was successfully created.' }
+    #end
   end
 
   private
@@ -69,6 +39,6 @@ class HistoricoAtividadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def historico_atividade_params
-      params.require(:historico_atividade).permit(:status)
+      params.require(:historico_atividade).permit(:status,:atividade_id)
     end
 end

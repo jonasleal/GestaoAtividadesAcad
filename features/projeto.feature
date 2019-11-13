@@ -55,7 +55,7 @@ Feature: Projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
   Scenario: remover um projeto existente
-    Given O usuario com titulo 'App mobile Ru', area 'informatica',natureza 'pesquisa de extensao',data de inicio '20/11/2019',data de termino '30/11/2019' existe
+    Given O projeto com titulo 'App mobile Ru', area 'informatica',natureza 'pesquisa de extensao',data de inicio '20/10/2019',data de termino '31/10/2019' existe
     And Eu estou na pagina de projetos
     When Eu clico em remover projeto com titulo 'App mobile Ru'
     Then Eu vejo que o  projeto com titulo 'App mobile Ru' foi removido

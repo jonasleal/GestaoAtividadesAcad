@@ -1,6 +1,4 @@
 <h1>Editing Atividade</h1>
-
-<%= render 'form', atividade: @atividade %>
-
-<%= link_to 'Show', @atividade %> |
-<%= link_to 'Back', atividades_path %>
+<%= render 'atividades/editarAtividade', atividade: @atividade%>
+<%= link_to 'Show', projeto_atividade_path(@atividade) %>
+<%= link_to 'Back', projeto_path(@atividade.projeto) %>

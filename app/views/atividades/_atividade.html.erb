@@ -1,0 +1,15 @@
+<p>
+  <strong>Titulo:</strong>
+  <%= atividade.titulo %>
+</p>
+<p>
+  <strong>Descricao:</strong>
+  <%= atividade.descricao %>
+</p>
+
+<%= link_to 'Deletar Atividade', [atividade.projeto,atividade],
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+
+<td><%= link_to 'Edit', edit_projeto_atividade_path(atividade) %></td>
+<td><%= link_to 'Show', projeto_atividade_path(atividade) %></td>
