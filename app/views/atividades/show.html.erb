@@ -30,14 +30,6 @@
   <%= @atividade.descricao %>
 </p>
 
-<h2>Historico dos Status:</h2>
-<%= render @atividade.historico_atividades %>
-
-<h2>Modificando Status:</h2>
-<%= render 'historico_atividades/form' %>
-
-
-
 <%= link_to 'Back', projeto_path(@atividade.projeto) %>
 
 
