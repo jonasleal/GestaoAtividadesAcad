@@ -49,12 +49,14 @@ end
 When("Eu clico em remover bibliografia com titulo {string}") do |titulo|
   click_link "d-#{titulo}"
 end
+
 Then("Eu vejo que a bibliografia com titulo {string} foi removida") do |titulo|
   visit '/projetos/' + Projeto.last.id.to_s
   expect(page).to have_no_content(titulo)
 end
 
+/Criar bibliografia invalida/
 
-
-
-
+Then("Eu vejo uma mensagem de erro de bibliografia") do
+  expect(page).to have_content("Erro ao adicionar bibliografia")
+end

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2 id="alert" style="font-weight: bold; color: red"><%= alert %></h2>
+
 <p>
   <strong>Titulo:</strong>
   <%= @projeto.titulo %>
@@ -45,9 +47,6 @@
 <h2>Adicionando Atividades:</h2>
 <%= render 'atividades/form' %>
 <p>
-
-
-
 
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>

@@ -26,8 +26,15 @@ class BibliografiaController < ApplicationController
   def create
     @projeto = Projeto.find(params[:projeto_id])
     @bibliografium =  @projeto.bibliografia.create(bibliografium_params)
-    if @bibliografium .save
-      redirect_to projeto_path(@projeto), {notice: 'Bibliografium was successfully created.' }
+
+    respond_to do |format|
+      if @bibliografium.save
+        format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografium was successfully created.' }
+        #format.json { render :show, status: :ok, location: projeto_path(@projeto) }
+      else
+        format.html { redirect_to projeto_path(@projeto), :flash => { :error => @bibliografium.errors }, alert: "Erro ao adicionar bibliografia"}
+        #format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
+      end
     end
   end
 
