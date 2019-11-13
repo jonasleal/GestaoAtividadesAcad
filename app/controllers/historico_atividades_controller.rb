@@ -24,11 +24,11 @@ class HistoricoAtividadesController < ApplicationController
   # POST /historico_atividades
   # POST /historico_atividades.json
   def create
-    @atividade =Atividade.find(params[:atividade_id])
-    @historico_atividade =  @atividade.historico_atividades.create(historico_atividade_params)
-    if @historico_atividade.save
-      redirect_to atividade_path(@atividade), {notice: ' status was successfully created.' }
-    end
+    #@atividade =Atividade.find(params[:atividade_id])
+    #@historico_atividade =  @atividade.historico_atividades.create(historico_atividade_params)
+    #if @historico_atividade.save
+     # redirect_to atividade_path(@atividade), {notice: ' status was successfully created.' }
+    #end
   end
 
   private
