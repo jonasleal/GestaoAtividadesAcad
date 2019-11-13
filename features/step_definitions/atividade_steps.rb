@@ -93,6 +93,7 @@ Then('Eu vejo uma mensagem de erro de atividade') do
   assert_selector('h2#alert', text: "")
 end
 
-And(/^apreencho o campo carga prevista de atividade com '\-1'$/) do
-  pending
+
+And('preencho carga realizada da atividade com {string}') do |cargaReal|
+  fill_in 'atividade[cargaReal]', with: cargaReal
 end

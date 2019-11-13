@@ -41,6 +41,14 @@ Feature: Projeto
     And clico no botão atualizar
     Then Eu vejo uma mensagem de erro
 
+  Scenario: editar carga prevista negativa
+    Given O projeto com titulo 'App mobile Ru' existe
+    And no projeto 'App mobile Ru' a atividade com titulo 'Primeira atividade' existe
+    When clico em editar da atividade com titulo 'Primeira atividade'
+    And preencho carga realizada da atividade com '-1'
+    And clico no botão atualizar
+    Then Eu vejo uma mensagem de erro
+
   Scenario: remover atividade existente
     Given O projeto com titulo 'App mobile Ru' existe
     And no projeto 'App mobile Ru' a atividade com titulo 'Primeira atividade' existe
