@@ -53,11 +53,11 @@ And('preencho carga prevista da atividade com {string}') do |cargaPrev|
   fill_in 'atividade[cargaPrev]', with: cargaPrev
 end
 
-And('descrição da atividade com {string}') do |descricao|
+And('descriçao da atividade com {string}') do |descricao|
   fill_in 'atividade[descricao]', with: descricao
 end
 
-And('clico no botão Adicionar') do
+And('clico no botao Adicionar') do
   click_button 'adcAtividade'
 end
 
@@ -75,7 +75,7 @@ When('clico em editar da atividade com titulo {string}') do |titulo|
   click_link "e-#{titulo}"
 end
 
-And('clico no botão atualizar') do
+And('clico no botao atualizar') do
   click_button 'atuAtividade'
 end
 

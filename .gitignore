@@ -13,6 +13,7 @@
 db/schema.rb
 .generators
 .rakeTasks
+Gemfile.lock
 
 /node_modules
 /yarn-error.log
