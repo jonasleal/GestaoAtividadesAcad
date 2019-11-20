@@ -1,5 +1,6 @@
 class HistoricoAtividadesController < ApplicationController
   before_action :set_historico_atividade, only: [:show, :edit]
+  before_action :authenticate_usuario!
 
   # GET /historico_atividades
   # GET /historico_atividades.json

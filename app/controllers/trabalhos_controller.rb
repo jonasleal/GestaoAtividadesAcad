@@ -1,4 +1,5 @@
 class TrabalhosController < ApplicationController
+  before_action :authenticate_usuario!
   def create
     @projeto = Projeto.find(params[:projeto_id])
     @trabalho =  @projeto.trabalhos.create(trabalho_params)

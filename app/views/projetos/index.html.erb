@@ -1,16 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projetos</h1>
+<h1><strong>Projetos</strong><hr/></h1>
+<%= link_to 'Novo projeto', new_projeto_path %>
+<br>
+<ul>
 
 <table>
   <thead>
     <tr>
-      <th>Titulo</th>
-      <th>Area</th>
-      <th>Datafin</th>
-      <th>Datainicio</th>
-      <th>Tipoprojeto</th>
-      <th colspan="3"></th>
+      <th style="color:#800000;"><pre ><font size="5">Título:</font></pre></th>
+      <th style="color:#800000;"><pre><font size="5">Área:</font></pre></th>
+      <th style="color:#800000;"><pre><font size="5">Data de fim:</font></pre></th>
+      <th style="color:#800000;"><pre><font size="5">Data de início</font> </pre></th>
+      <th style="color:#800000;"><pre><font size="5">Tipo do projeto:</font></pre></th>
+      <th style="color:#800000;" colspan="3"></th>
     </tr>
   </thead>
 
@@ -22,14 +25,15 @@
         <td><%= projeto.dataFin %></td>
         <td><%= projeto.dataInicio %></td>
         <td><%= projeto.tipoProjeto %></td>
-        <td><%= link_to 'Show', projeto, id:"s-#{projeto.titulo}" %></td>
-        <td><%= link_to 'Edit', edit_projeto_path(projeto)%></td>
-        <td><%= link_to 'Destroy', projeto,id:"d-#{projeto.titulo}", method: :delete %></td>
+        <td><strong><%= link_to 'Vizualizar', projeto, id:"s-#{projeto.titulo}" %></strong></td>
+        <td><strong><%= link_to 'Editar', edit_projeto_path(projeto)%></strong></td>
+        <td><strong><%= link_to 'Cancelar', projeto,id:"d-#{projeto.titulo}", method: :delete %></strong></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</ul>
 <br>
 
-<%= link_to 'New Projeto', new_projeto_path %>
+
+<%= link_to 'voltar', 'welcome/index'%>

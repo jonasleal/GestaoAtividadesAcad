@@ -3,29 +3,11 @@
 <h2 id="alert" style="font-weight: bold; color: red"><%= alert %></h2>
 
 <p>
-  <strong>Titulo:</strong>
-  <%= @projeto.titulo %>
+<h1><strong>Projeto</strong></h1>
+  <%= @projeto.titulo %><hr/>
 </p>
 
-<p>
-  <strong>Area:</strong>
-  <%= @projeto.area %>
-</p>
 
-<p>
-  <strong>Datafin:</strong>
-  <%= @projeto.dataFin %>
-</p>
-
-<p>
-  <strong>Datainicio:</strong>
-  <%= @projeto.dataInicio %>
-</p>
-
-<p>
-  <strong>Tipoprojeto:</strong>
-  <%= @projeto.tipoProjeto %>
-</p>
 <h2>Integrantes</h2>
 <%= render @projeto.trabalhos%>
 
@@ -38,7 +20,7 @@
 </p>
 
 <h2>Adicionando bibliografias:</h2>
-<%= render 'bibliografia/form' %>
+<%= link_to "novo",new_projeto_bibliografium_path(@projeto)%>
 
 <h2>Lista de  Atividades:</h2>
 <%= render @projeto.atividades %>
@@ -49,3 +31,5 @@
 <p>
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
+<h2>Adicionando bibliografias:</h2>
+

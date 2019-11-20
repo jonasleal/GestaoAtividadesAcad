@@ -1,10 +1,11 @@
 class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /projetos
   # GET /projetos.json
   def index
-    @projetos = Projeto.all
+    @projetos = current_usuario.projetos
   end
 
   # GET /projetos/1
@@ -24,7 +25,8 @@ class ProjetosController < ApplicationController
   # POST /projetos
   # POST /projetos.json
   def create
-    @projeto = Projeto.new(projeto_params)
+    @projeto = current_usuario.projetos.create(projeto_params)
+
     respond_to do |format|
       if @projeto.save
         format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }
