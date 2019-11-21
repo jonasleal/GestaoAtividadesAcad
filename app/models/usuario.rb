@@ -2,7 +2,7 @@ class Usuario < ApplicationRecord
   # Include default devise modules. Others available are:
   #  :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,:confirmable,:lockable
+         :recoverable, :rememberable, :validatable
   has_many :trabalhos ,dependent: :destroy
   has_many :projetos,:through=>:trabalhos
   validates :nome, presence: { message: "nao pode ser em branco ou conter acentuacao"},
