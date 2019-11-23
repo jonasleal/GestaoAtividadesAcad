@@ -12,17 +12,21 @@
       width: 100%;
       height: 100%;
     }
+    .logo{
+      width: 200px;
+      height: 200px;
+    }
     .rotulo{
       text-align: right;
       color: #ffffff;
     }
-    .login {
+    .login ,.cadastro {
       height: 400px;
       width: 350px;
       margin-top: auto;
       margin-bottom: auto;
       background: #242939;
-      transform: translate(-50%);
+      transform: translate(-50%, 20%);
       left: 50%;
       top: 50%;
 
@@ -37,6 +41,24 @@
       border-radius: 15px;
 
     }
+    .alertaCadastro{
+      width: 450px;
+
+      position: absolute;
+      transform: translate(0%, -50%);
+      top: 50%;
+      left: 20px;
+    }
+    .alertaLogin{
+
+    }
+    .textoCentralizado{
+      text-align: center
+    }
+      .cadastro{
+        height: 600px;
+        transform: translate(-50%, 0%);
+      }
   </style>
 </head>
 
@@ -44,7 +66,6 @@
 
 <div class="container-fluid ">
   <p class="notice"><%= notice %></p>
-  <div class="alert alert-danger alert-dismissible fade show"><%= alert %></div>
   <%= yield %>
 </div>
 

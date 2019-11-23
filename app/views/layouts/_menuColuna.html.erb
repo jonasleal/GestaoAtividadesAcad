@@ -1,0 +1,28 @@
+<div class="container menuEsquerdo">
+  <div class="row logo">
+    <!-- Adicione a logo aqui-->
+  </div>
+  <div class="row" >
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header"  id="headingOne">
+          <a href="javascript:;" class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Projetos</a>
+
+        </div>
+
+        <div id="collapseOne"  class="collapse show dropMenu" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <ul>
+              <li>
+                <%= link_to 'Listar projetos', projetos_path(current_usuario.projetos)%>
+              </li>
+              <li>
+                <%= link_to 'Novo projeto', new_projeto_path %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
