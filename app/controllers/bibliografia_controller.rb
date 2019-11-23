@@ -1,6 +1,6 @@
 class BibliografiaController < ApplicationController
   before_action :set_bibliografium, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_usuario!
   # GET /bibliografia
   # GET /bibliografia.json
   def index
@@ -15,6 +15,7 @@ class BibliografiaController < ApplicationController
   # GET /bibliografia/new
   def new
     @bibliografium = Bibliografium.new
+    @projeto= Projeto.find(params[:projeto_id])
   end
 
   # GET /bibliografia/1/edit
@@ -24,8 +25,8 @@ class BibliografiaController < ApplicationController
   # POST /bibliografia
   # POST /bibliografia.json
   def create
-    @projeto = Projeto.find(params[:projeto_id])
-    @bibliografium =  @projeto.bibliografia.create(bibliografium_params)
+    @projeto= Projeto.find(params[:projeto_id])
+    @bibliografium = @projeto.bibliografia.create(bibliografium_params)
 
     respond_to do |format|
       if @bibliografium.save
@@ -36,6 +37,7 @@ class BibliografiaController < ApplicationController
         #format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /bibliografia/1

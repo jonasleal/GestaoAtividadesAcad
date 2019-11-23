@@ -1,5 +1,6 @@
 class AtividadesController < ApplicationController
   before_action :set_atividade, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /atividades
   # GET /atividades.json
@@ -26,13 +27,10 @@ class AtividadesController < ApplicationController
   def create
 
     @projeto = Projeto.find(params[:projeto_id])
+
     @atividade = @projeto.atividades.create(atividade_params)
+
     @atividade.cargaReal= 0
-
-    #if @atividade.save
-     # redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
-    #end
-
     respond_to do |format|
       if @atividade.save
         format.html { redirect_to projeto_path(@projeto), notice: 'Atividade was successfully created.' }
