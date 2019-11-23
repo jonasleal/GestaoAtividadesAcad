@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :usuarios, controllers: { sessions: 'usuarios/sessions' ,registrations:'usuarios/registrations'}
 
 
-  get 'welcome/index'
+  get 'usuarios/sign_in'
   resources :projetos do
     resources :trabalhos
     resources :bibliografia
@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :atividades do
     resources :historico_atividades
   end
-  root 'welcome#index'
+  root 'usuarios#new'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
