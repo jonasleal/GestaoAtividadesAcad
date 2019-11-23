@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1><strong>Projetos</strong><hr/></h1>
-<%= link_to 'Novo projeto', new_projeto_path %>
+<h1><strong>Projetos</strong></h1>
 <br>
-<ul>
 
 <table>
   <thead>
@@ -20,20 +18,17 @@
   <tbody>
     <% @projetos.each do |projeto| %>
       <tr>
-        <td><%= projeto.titulo %></td>
+        <td><%= link_to projeto.titulo, projeto, id:"s-#{projeto.titulo}" %></td>
         <td><%= projeto.area %></td>
         <td><%= projeto.dataFin %></td>
         <td><%= projeto.dataInicio %></td>
         <td><%= projeto.tipoProjeto %></td>
-        <td><strong><%= link_to 'Vizualizar', projeto, id:"s-#{projeto.titulo}" %></strong></td>
+        <td><strong></strong></td>
         <td><strong><%= link_to 'Editar', edit_projeto_path(projeto)%></strong></td>
         <td><strong><%= link_to 'Cancelar', projeto,id:"d-#{projeto.titulo}", method: :delete %></strong></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</ul>
 <br>
 
-
-<%= link_to 'voltar', 'welcome/index'%>
