@@ -1,47 +1,80 @@
 <%= form_for([@projeto,atividade], local: true) do |form| %>
-  <% if @projeto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(projeto.errors.count, "error") %> prohibited this atividade from being saved:</h2>
+  <div class="row">
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-sm">
+        <%= form.text_field :titulo, id: :atividade_titulo,:class => "form-control", placeholder: "Titulo" %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <table>
+        <tr>
+          <td style="text-align: center" colspan="2">Data</td>
+        </tr>
+        <tr>
+          <td>
+            Inicio
+          </td>
+          <td>
+            <%= form.date_select :dataInicio, id: :atividade_dataInicio %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Fim
+          </td>
+          <td>
+            <%= form.date_select :dataFim, id: :atividade_dataFim %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-sm" >
+        <%= form.number_field :cargaPrev, id: :atividade_cargaPrev,:class => "form-control", placeholder: "Carga horaria prevista"  %>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= form.number_field :cargaReal, id: :atividade_cargaReal,:class => "form-control", placeholder: "Carga horaria realizada" %>
+      </div>
+    </div>
+    <br/>
+  </div>
+    <div class="col-sm">
+      <%= form.text_area :descricao, id: :atividade_descricao,:class => "form-control descricao", placeholder: "Descrição" %>
 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm div-centro">
+      <%= link_to 'Voltar', projeto_path(@projeto) , :class => "btn btn-primary" %>
+    </div>
+    <div class="col-sm div-centro">
+      <%= form.submit value="Adicionar", id: :adcAtividade, :class => "btn btn-primary" %>
+    </div>
+  </div>
+
+<% end %>
+
+
+<% if @projeto.errors.any? %>
+  <div class="alert alert-warning alert-dismissible fade show alertaCadastro" role="alert">
+
+    <div>
+      <h4>
+        <%= pluralize(projeto.errors.count, "error") %> prohibited this projeto from being saved:
+      </h4>
       <ul>
-      <% @projeto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, id: :atividade_titulo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dataInicio, value='Data de inicio'  %>
-    <%= form.date_select :dataInicio, id: :atividade_dataInicio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dataFim, value='Data de termino'  %>
-    <%= form.date_select :dataFim, id: :atividade_dataFim %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cargaPrev, value= "Carga prevista" %>
-    <%= form.number_field :cargaPrev, id: :atividade_cargaPrev %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cargaReal, value= "Carga realizada"%>
-    <%= form.number_field :cargaReal, id: :atividade_cargaReal %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao, id: :atividade_descricao %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit value="Adicionar", id: :adcAtividade%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 <% end %>

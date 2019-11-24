@@ -17,7 +17,8 @@
 }
 
 .login ,.cadastro, .novo-projeto, .projetos,
-.integrantes-projeto, .atividades-projeto, .bibliografia-projeto{
+.integrantes-projeto, .atividades-projeto,
+.bibliografia-projeto, .nova-atividade{
   height: 400px;
   width: 350px;
   margin-top: auto;
@@ -35,6 +36,13 @@
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 15px;
 
+}
+textarea.descricao{
+  height: 245px;
+  resize: none;
+}
+.nova-atividade{
+  width: 600px;
 }
 .integrantes-projeto, .bibliografia-projeto, .atividades-projeto{
   height: auto;
