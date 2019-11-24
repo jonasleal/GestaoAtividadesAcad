@@ -55,7 +55,7 @@
     <% if resource.errors.any? %>
       <div class="alert alert-warning alert-dismissible fade show alertaCadastro" role="alert">
 
-        <div id="error_explanation">
+        <div >
           <h4>
             <%= I18n.t("errors.messages.not_saved",
                        count: resource.errors.count,
