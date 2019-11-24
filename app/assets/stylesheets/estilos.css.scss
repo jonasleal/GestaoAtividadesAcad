@@ -18,7 +18,8 @@
 
 .login ,.cadastro, .novo-projeto, .projetos,
 .integrantes-projeto, .atividades-projeto,
-.bibliografia-projeto, .nova-atividade{
+.bibliografia-projeto, .nova-bibliografia,
+.nova-atividade{
   height: 400px;
   width: 350px;
   margin-top: auto;
@@ -36,6 +37,13 @@
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 15px;
 
+}
+.nova-bibliografia{
+  height: auto;
+}
+textarea.bibliografia-descricao{
+  height: 100px;
+  resize: none;
 }
 textarea.descricao{
   height: 245px;
@@ -58,19 +66,20 @@ textarea.descricao{
 .projetos{
   width: 750px;
 }
+.alertaFlutuante, .alertaCadastro{
+  position: absolute;
+  margin: 10px;
+  top: 60px;
+  right: 0px;
+}
 .alertaCadastro{
   width: 450px;
-
-  position: absolute;
-  transform: translate(0%, -50%);
-  top: 50%;
-  left: 20px;
 }
 .textoCentralizado{
   text-align: center
 }
 .cadastro{
-  height: 600px;
+  height: 550px;
 }
 
 .layout-cabecacalho { grid-area: header; }

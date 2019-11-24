@@ -1,15 +1,10 @@
 <div class="div-centro">
   <div class="container novo-projeto rotulo">
 
-  <div class="row-sm div-centro">
+  <div class="row-sm" style="text-align: center">
     <h2>Novo projeto</h2>
   </div>
-  <div class="row-sm">
-
     <%= render 'form', projeto: @projeto %>
-
-  </div>
-
 </div>
-
+  <%= render 'mensagem_erro', projeto: @projeto %>
 </div>
