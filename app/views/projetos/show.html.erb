@@ -1,34 +1,98 @@
+<div class="grid-container-projeto rotulo">
+
+      <div class="integrantes-projeto div-centro">
+        <h3>Integrantes</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+
+              <table class="table table-hover table-dark">
+                <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Função</th>
+                  <th scope="col"></th>
+                  <th scope="col"><span class="oi oi-plus"></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @projeto.trabalhos.each do |trabalho| %>
+                  <tr>
+                    <td><%= trabalho.usuario.nome %></td>
+                    <td><%= trabalho.funcao %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="atividades-projeto div-centro">
+        <h2><%= @projeto.titulo %></h2>
+
+        <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <table class="table table-hover table-dark">
+                  <thead>
+                  <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Inicio</th>
+                    <th scope="col">Fim</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col"><%=link_to "", new_projeto_atividade_path(@projeto), :class => "oi oi-plus" %></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @projeto.atividades.each do |atividade| %>
+                    <tr>
+                      <td><%= atividade.titulo %></td>
+                      <td></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="bibliografia-projeto div-centro">
+        <h3>Bibliográfias</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+
+              <table class="table table-hover table-dark">
+                <thead>
+                <tr>
+                  <th scope="col">Titulo</th>
+                  <th scope="col"></th>
+                  <th scope="col"><%= link_to "",new_projeto_bibliografium_path(@projeto), :class =>"oi oi-plus"%></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @projeto.bibliografia.each do |bibliografia| %>
+                  <tr>
+                    <td><%= bibliografia.titulo %></td>
+                    <td></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
 <p id="notice"><%= notice %></p>
 
-<h2 id="alert" style="font-weight: bold; color: red"><%= alert %></h2>
-
-<p>
-<h1><strong>Projeto</strong></h1>
-  <%= @projeto.titulo %><hr/>
-</p>
-
-
-<h2>Integrantes</h2>
-<p>
-  <%= link_to "Adicionar",new_projeto_trabalho_path(@projeto)%>
-  <%= link_to "Vizualizar",projeto_trabalhos_path(@projeto)%>
-</p>
-
-<p>
-<h2>Bibliografias:</h2>
-<%= link_to "Adicionar",new_projeto_bibliografium_path(@projeto)%>
-<%= link_to "Vizualizar",projeto_bibliografia_path(@projeto)%>
-</p>
-
-<p>
-<h2>Atividades:</h2>
-<%= link_to "Adicionar",new_projeto_atividade_path(@projeto)%>
-<%= link_to "Vizualizar" ,projeto_atividades_path(@projeto)%>
-</p>
+<h2 id="alert"><%= alert %></h2>
 
 
 
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %>
-
+>>>>>>> Designer das telas de projeto
 

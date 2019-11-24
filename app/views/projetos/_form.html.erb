@@ -1,42 +1,67 @@
-<%= form_with(model: projeto, local: true) do |form| %>
-  <% if projeto.errors.any? %>
-    <div id="projeto_erro">
-      <h2><%= pluralize(projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
 
+    <%= form_with(model: projeto, local: true) do |form| %>
+      <div class="row">
+        <div class="col-sm">
+          <%= form.text_field :titulo, id: :projeto_titulo,:class => "form-control", placeholder: "Titulo" %>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-sm" >
+          <%= form.text_field :area, id: :projeto_area,:class => "form-control", placeholder: "Área"  %>
+        </div>
+      </div>
+      <br/>
+      <div class="row justify-content-center">
+        <table>
+          <tr>
+            <td>
+              Data de inicio
+            </td>
+            <td>
+              <%= form.date_select :dataInicio, id: :projeto_dataInicio %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Data de termino
+            </td>
+            <td>
+              <%= form.date_select :dataFin, id: :projeto_dataFin %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-sm">
+          <%= form.text_field :tipoProjeto, id: :projeto_tipoProjeto ,:class => "form-control", placeholder: "Natureza" %>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-sm">
+          <%= form.submit value='Criar projeto' , :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+
+
+<% if projeto.errors.any? %>
+  <div class="alert alert-warning alert-dismissible fade show alertaCadastro" role="alert">
+
+    <div>
+      <h4>
+        <%= pluralize(projeto.errors.count, "error") %> prohibited this projeto from being saved:
+      </h4>
       <ul>
-      <% projeto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, id: :projeto_titulo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :area %>
-    <%= form.text_field :area, id: :projeto_area %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dataInicio, value='Data de inicio' %>
-    <%= form.date_select :dataInicio, id: :projeto_dataInicio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dataFin, value='Data de termino' %>
-    <%= form.date_select :dataFin, id: :projeto_dataFin %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tipoProjeto, value='Natureza'%>
-    <%= form.text_field :tipoProjeto, id: :projeto_tipoProjeto %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit value='Criar projeto' %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 <% end %>
