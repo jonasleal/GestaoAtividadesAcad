@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Integrantes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Função</th>
+      <th>E-mail</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%@trabalhos.each do |trabalho| %>
+      <tr>
+        <td><%= trabalho.funcao %></td>
+        <td><%= trabalho.usuario.email %></td>
+        <td><strong></strong></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+

@@ -1,4 +1,4 @@
-<%= form_with(model: [@projeto,@projeto.trabalhos.build], local: true) do |form| %>
+<%= form_for([@projeto,trabalho], local: true) do |form| %>
   <% if @projeto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this trabalho from being saved:</h2>

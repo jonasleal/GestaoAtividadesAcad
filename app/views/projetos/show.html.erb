@@ -9,27 +9,26 @@
 
 
 <h2>Integrantes</h2>
-<%= render @projeto.trabalhos%>
-
-<h2>Adicionando integrantes:</h2>
-<%= render 'trabalhos/form' %>
 <p>
-
-<h2>Bibliográfias</h2>
-<%=  render @projeto.bibliografia%>
+  <%= link_to "Adicionar",new_projeto_trabalho_path(@projeto)%>
+  <%= link_to "Vizualizar",projeto_trabalhos_path(@projeto)%>
 </p>
 
-<h2>Adicionando bibliografias:</h2>
-<%= link_to "novo",new_projeto_bibliografium_path(@projeto)%>
-
-<h2>Lista de  Atividades:</h2>
-<%= render @projeto.atividades %>
 <p>
+<h2>Bibliografias:</h2>
+<%= link_to "Adicionar",new_projeto_bibliografium_path(@projeto)%>
+<%= link_to "Vizualizar",projeto_bibliografia_path(@projeto)%>
+</p>
 
-<h2>Adicionando Atividades:</h2>
-<%= render 'atividades/form' %>
 <p>
+<h2>Atividades:</h2>
+<%= link_to "Adicionar",new_projeto_atividade_path(@projeto)%>
+<%= link_to "Vizualizar" ,projeto_atividades_path(@projeto)%>
+</p>
+
+
+
 <%= link_to 'Edit', edit_projeto_path(@projeto) %> |
 <%= link_to 'Back', projetos_path %>
-<h2>Adicionando bibliografias:</h2>
+
 

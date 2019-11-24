@@ -16,6 +16,7 @@ class AtividadesController < ApplicationController
   # GET /atividades/new
   def new
     @atividade = Atividade.new
+    @projeto= Projeto.find(params[:projeto_id])
   end
 
   # GET /atividades/1/edit
