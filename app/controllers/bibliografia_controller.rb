@@ -31,7 +31,7 @@ class BibliografiaController < ApplicationController
     respond_to do |format|
       #redirect_to projeto_path(@projeto)
       if @bibliografium.save
-        format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografium was successfully created.' }
+        format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografia salva com sucesso.' }
         format.json { render :show, status: :created, location: @bibliografium }
       else
         format.html { render :new }
@@ -46,13 +46,15 @@ class BibliografiaController < ApplicationController
   def update
     respond_to do |format|
       if @bibliografium.update(bibliografium_params)
-        format.html { redirect_to @bibliografium, notice: 'Bibliografium was successfully updated.' }
+        format.html { redirect_to @bibliografium, notice: 'Bibliografia editada com sucesso.' }
         format.json { render :show, status: :ok, location: @bibliografium }
       else
         format.html { render :edit }
         format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
       end
+
     end
+
   end
 
   # DELETE /bibliografia/1
