@@ -4,6 +4,7 @@ class CreateBibliografia < ActiveRecord::Migration[5.1]
       t.string :titulo
       t.string :descricao
       t.references :projeto, foreign_key: true
+      t.boolean :status
       t.timestamps
     end
   end

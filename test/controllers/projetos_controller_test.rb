@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProjetosControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  /setup do
     @projeto = projetos(:one)
   end
 
@@ -44,5 +44,5 @@ class ProjetosControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to projetos_url
-  end
+  end/
 end

@@ -1,0 +1,71 @@
+<div class="cadastro">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="row">
+      <div class="col-sm rotulo textoCentralizado" >
+        <h2>Editar <%= resource_name.to_s.humanize %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class => "form-control", placeholder: "E-mail" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :password, autocomplete: "new-password" ,:class => "form-control", placeholder: "Senha" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,:class => "form-control", placeholder: "Confirme a senha" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :current_password, autocomplete: "current-password",:class => "form-control", placeholder: "Senha atual" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :curso, id: :usuario_curso,:class => "form-control", placeholder: "Curso" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= link_to 'Voltar', projetos_path , :class => "btn btn-primary" %>
+      </div>
+      <div class="col-sm">
+        <%= f.submit "Update", :class => "btn btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+  <br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= button_to "Cancelar conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-primary"  %>
+      </div>
+    </div>
+
+
+</div>
+<% if resource.errors.any? %>
+  <div id='alertaErro' class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
+
+    <div >
+      <h4>
+        <%= I18n.t("errors.messages.not_saved",
+                   count: resource.errors.count,
+                   resource: resource.class.model_name.human.downcase)
+        %>
+      </h4>
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>

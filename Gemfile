@@ -5,11 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+#devise
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 
 gem 'brakeman', '~> 4.7', '>= 4.7.1'
+
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

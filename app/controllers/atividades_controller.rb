@@ -1,10 +1,12 @@
 class AtividadesController < ApplicationController
   before_action :set_atividade, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_usuario!
 
   # GET /atividades
   # GET /atividades.json
   def index
-    @atividades = Atividade.all
+    @projeto= Projeto.find(params[:projeto_id])
+    @atividades=@projeto.atividades
   end
 
   # GET /atividades/1
@@ -15,6 +17,7 @@ class AtividadesController < ApplicationController
   # GET /atividades/new
   def new
     @atividade = Atividade.new
+    @projeto= Projeto.find(params[:projeto_id])
   end
 
   # GET /atividades/1/edit
@@ -26,28 +29,28 @@ class AtividadesController < ApplicationController
   def create
 
     @projeto = Projeto.find(params[:projeto_id])
+
     @atividade = @projeto.atividades.create(atividade_params)
+
     @atividade.cargaReal= 0
-
-    #if @atividade.save
-     # redirect_to projeto_path(@projeto), {notice: 'Atividade was successfully created.' }
-    #end
-
+    # redirect_to projeto_path(@projeto)
     respond_to do |format|
       if @atividade.save
-        format.html { redirect_to projeto_path(@projeto), notice: 'Atividade was successfully created.' }
+        format.html { redirect_to projeto_path(@projeto), notice:'Atividade adicionada com sucesso.'  }
+        format.json { render :show, status: :created, location: @atividade }
       else
-        format.html { redirect_to projeto_path(@projeto), alert: "Erro ao adicionar Atividade"}
+        format.html { render :new }
+        format.json { render json: @atividade.errors, status: :unprocessable_entity }
       end
     end
-  end
+    end
 
   # PATCH/PUT /atividades/1
   # PATCH/PUT /atividades/1.json
   def update
     respond_to do |format|
       if @atividade.update(atividade_params)
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully updated.' }
+        format.html { redirect_to @atividade, notice: 'Atividade editada  com sucesso.' }
         format.json { render :show, status: :ok, location: @atividade }
       else
         format.html { render :edit }

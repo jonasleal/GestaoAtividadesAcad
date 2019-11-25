@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+@import "estilos.css";
+body, html {
+    width: 100%;
+    height: 100%;
+
+}

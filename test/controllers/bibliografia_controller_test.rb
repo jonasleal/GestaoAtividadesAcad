@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class BibliografiaControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  /setup do
     @bibliografium = bibliografia(:one)
   end
 
@@ -44,5 +44,5 @@ class BibliografiaControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to bibliografia_url
-  end
+  end/
 end

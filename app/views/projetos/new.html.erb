@@ -1,5 +1,10 @@
-<h1>Novo projeto</h1>
+<div class="div-centro">
+  <div class="container novo-projeto rotulo">
 
-<%= render 'form', projeto: @projeto %>
-
-<%= link_to 'Back', projetos_path %>
+  <div class="row-sm" style="text-align: center">
+    <h2>Novo projeto</h2>
+  </div>
+    <%= render 'form', projeto: @projeto %>
+</div>
+  <%= render 'mensagem_erro', projeto: @projeto %>
+</div>

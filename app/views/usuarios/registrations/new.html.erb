@@ -1,0 +1,70 @@
+<div class="cadastro">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="col-sm rotulo textoCentralizado" >
+      <h2>Cadastre-se</h2>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class => "form-control", placeholder: "E-mail" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :password, autocomplete: "new-password" ,:class => "form-control", placeholder: "Senha" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,:class => "form-control", placeholder: "Confirme a senha" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :nome, id: :usuario_nome,:class => "form-control", placeholder: "Nome" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :cpf, id: :usuario_cpf,:class => "form-control", placeholder: "CPF ###.###.###-##" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :curso, id: :usuario_curso,:class => "form-control", placeholder: "Curso" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm div-centro">
+        <%= link_to 'Voltar', new_session_path(resource_name) , :class => "btn btn-primary" %>
+      </div>
+      <div class="col-sm div-centro">
+        <%= f.submit "Salvar", :class => "btn btn-primary"%>
+      </div>
+    </div><br/>
+  <% end %>
+
+</div>
+    <% if resource.errors.any? %>
+      <div id='alertaErro' class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
+
+        <div >
+          <h4>
+            <%= I18n.t("errors.messages.not_saved",
+                       count: resource.errors.count,
+                       resource: resource.class.model_name.human.downcase)
+            %>
+          </h4>
+          <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+

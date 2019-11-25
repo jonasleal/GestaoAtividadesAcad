@@ -1,3 +1,14 @@
-<h1>Bem Vindo ao sistema de Gestão de Atividades Acadêmicas</h1>
-<%= link_to 'Cadastrar-se', new_usuario_path%>
-<%= link_to 'Login'%>
+<h1><strong>Bem vindo</strong></h1></h1>
+
+  <%if usuario_signed_in?%>
+  <ul>
+    <li><%= link_to 'Sair', destroy_usuario_session_path,method: :delete%></li>
+    <li><%= link_to 'Projetos', projetos_path(current_usuario.projetos)%></li>
+  </ul>
+  <%else %>
+  <ul>
+    <li><%= link_to 'Cadastro  de novo Usuário',new_usuario_registration_path%></li>
+    <li><%= link_to 'Logar',new_usuario_session_path%></li>
+  </ul>
+<%end %>
+
