@@ -5,7 +5,8 @@ class AtividadesController < ApplicationController
   # GET /atividades
   # GET /atividades.json
   def index
-    @atividades = Atividade.all
+    @projeto= Projeto.find(params[:projeto_id])
+    @atividades=@projeto.atividades
   end
 
   # GET /atividades/1

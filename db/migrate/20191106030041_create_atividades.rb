@@ -8,6 +8,7 @@ class CreateAtividades < ActiveRecord::Migration[5.1]
       t.integer :cargaReal
       t.text :descricao
       t.references :projeto, foreign_key: true
+      t.boolean :status
       t.timestamps
     end
   end

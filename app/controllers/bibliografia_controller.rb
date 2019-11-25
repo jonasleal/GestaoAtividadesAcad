@@ -4,7 +4,8 @@ class BibliografiaController < ApplicationController
   # GET /bibliografia
   # GET /bibliografia.json
   def index
-    @bibliografia = Bibliografium.all
+    @projeto= Projeto.find(params[:projeto_id])
+    @bibliografia=@projeto.bibliografia
   end
 
   # GET /bibliografia/1
@@ -27,7 +28,6 @@ class BibliografiaController < ApplicationController
   def create
     @projeto= Projeto.find(params[:projeto_id])
     @bibliografium = @projeto.bibliografia.create(bibliografium_params)
-
     respond_to do |format|
       if @bibliografium.save
         format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografium was successfully created.' }
