@@ -5,6 +5,8 @@
       <h2>Adicionar integrante</h2>
     </div>
     <%= render 'form', trabalho: @trabalho %>
+    <%= link_to 'voltar', projeto_path(@projeto) %>
   </div>
   <%= render 'mensagem_erro', projeto: @projeto %>
+  <%= link_to 'voltar', projeto_path(@projeto) %>
 </div>

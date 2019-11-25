@@ -36,21 +36,21 @@ class AtividadesController < ApplicationController
     # redirect_to projeto_path(@projeto)
     respond_to do |format|
       if @atividade.save
-        format.html { redirect_to projeto_path(@projeto), notice: 'Atividade was successfully created.' }
+        format.html { redirect_to projeto_path(@projeto), notice:'Atividade adicionada com sucesso.'  }
         format.json { render :show, status: :created, location: @atividade }
       else
         format.html { render :new }
         format.json { render json: @atividade.errors, status: :unprocessable_entity }
       end
     end
-  end
+    end
 
   # PATCH/PUT /atividades/1
   # PATCH/PUT /atividades/1.json
   def update
     respond_to do |format|
       if @atividade.update(atividade_params)
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully updated.' }
+        format.html { redirect_to @atividade, notice: 'Atividade editada  com sucesso.' }
         format.json { render :show, status: :ok, location: @atividade }
       else
         format.html { render :edit }
