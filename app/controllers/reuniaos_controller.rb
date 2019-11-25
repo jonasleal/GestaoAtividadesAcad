@@ -1,28 +1,25 @@
 class ReuniaosController < ApplicationController
-  before_action :set_reuniao, only: [:show, :edit, :update, :destroy]
+  /before_action :set_reuniao, only: [:show, :edit, :update, :destroy]/
 
   # GET /reuniaos
   # GET /reuniaos.json
-  def index
+  /def index
     @reuniaos = Reuniao.all
   end
 
-  # GET /reuniaos/1
-  # GET /reuniaos/1.json
   def show
   end
 
-  # GET /reuniaos/new
+
   def new
     @reuniao = Reuniao.new
   end
 
-  # GET /reuniaos/1/edit
+
   def edit
   end
 
-  # POST /reuniaos
-  # POST /reuniaos.json
+
   def create
     @reuniao = Reuniao.new(reuniao_params)
 
@@ -37,8 +34,7 @@ class ReuniaosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reuniaos/1
-  # PATCH/PUT /reuniaos/1.json
+
   def update
     respond_to do |format|
       if @reuniao.update(reuniao_params)
@@ -51,8 +47,7 @@ class ReuniaosController < ApplicationController
     end
   end
 
-  # DELETE /reuniaos/1
-  # DELETE /reuniaos/1.json
+
   def destroy
     @reuniao.destroy
     respond_to do |format|
@@ -70,5 +65,5 @@ class ReuniaosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reuniao_params
       params.fetch(:reuniao, {})
-    end
+    end/
 end

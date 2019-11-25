@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ReuniaosControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  /setup do
     @reuniao = reuniaos(:one)
   end
 
@@ -44,5 +44,5 @@ class ReuniaosControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to reuniaos_url
-  end
+  end/
 end
