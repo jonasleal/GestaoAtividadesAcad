@@ -21,11 +21,14 @@ class TrabalhosController < ApplicationController
     @trabalho =  @projeto.trabalhos.create(trabalho_params)
 
     if @trabalho.save
-      redirect_to projeto_path(@projeto), {notice: 'Trabalho was successfully created.' }
+      format.html { redirect_to projeto_path(@projeto), notice:'Integrande foi adicionado com sucesso.'  }
+      format.json { render :show, status: :created, location: @projeto }
     else
-      redirect_to projeto_path(@projeto),{notice:@trabalho.errors}
+      format.html { render :new }
+      format.json { render json: @trabalho.errors, status: :unprocessable_entity }
     end
   end
+
 
   def destroy
     @projeto = Projeto.find(params[:projeto_id])

@@ -1,12 +1,13 @@
-<% if @projeto.errors.any? %>
+
+<% if trabalho.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
 
     <div>
       <h4>
-        <%= pluralize(@projeto.errors.count, "error") %> prohibited this trabalho from being saved:
+        <%= pluralize(trabalho.errors.count, "error") %> Proibe esse integrante de ser adicionado:
       </h4>
       <ul>
-        <% @projeto.errors.full_messages.each do |message| %>
+        <% trabalho.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
