@@ -3,7 +3,8 @@ class TrabalhosController < ApplicationController
   before_action :authenticate_usuario!
 
   def index
-    @trabalhos = Trabalho.all
+    @projeto= Projeto.find(params[:projeto_id])
+    @trabalhos=@projeto.trabalhos
   end
 
   def show

@@ -6,6 +6,7 @@ class CreateProjetos < ActiveRecord::Migration[5.1]
       t.date :dataFin
       t.date :dataInicio
       t.string :tipoProjeto
+      t.boolean :status
 
       t.timestamps
     end

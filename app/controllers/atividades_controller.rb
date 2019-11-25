@@ -5,7 +5,8 @@ class AtividadesController < ApplicationController
   # GET /atividades
   # GET /atividades.json
   def index
-    @atividades = Atividade.all
+    @projeto= Projeto.find(params[:projeto_id])
+    @atividades=@projeto.atividades
   end
 
   # GET /atividades/1
@@ -32,11 +33,14 @@ class AtividadesController < ApplicationController
     @atividade = @projeto.atividades.create(atividade_params)
 
     @atividade.cargaReal= 0
+    # redirect_to projeto_path(@projeto)
     respond_to do |format|
       if @atividade.save
         format.html { redirect_to projeto_path(@projeto), notice: 'Atividade was successfully created.' }
+        format.json { render :show, status: :created, location: @atividade }
       else
-        format.html { redirect_to projeto_path(@projeto), alert: "Erro ao adicionar Atividade"}
+        format.html { render :new }
+        format.json { render json: @atividade.errors, status: :unprocessable_entity }
       end
     end
   end

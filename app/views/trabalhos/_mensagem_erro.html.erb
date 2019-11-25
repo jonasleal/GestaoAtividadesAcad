@@ -1,0 +1,18 @@
+<% if @projeto.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
+
+    <div>
+      <h4>
+        <%= pluralize(@projeto.errors.count, "error") %> prohibited this trabalho from being saved:
+      </h4>
+      <ul>
+        <% @projeto.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>

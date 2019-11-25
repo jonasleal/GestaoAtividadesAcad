@@ -1,3 +1,4 @@
+
 <div class="grid-container-projeto rotulo">
 
       <div class="integrantes-projeto div-centro">
@@ -11,15 +12,15 @@
                 <tr>
                   <th scope="col">Nome</th>
                   <th scope="col">Função</th>
-                  <th scope="col"></th>
-                  <th scope="col"><span class="oi oi-plus"></span></th>
+                  <th scope="col"><%=link_to "", new_projeto_trabalho_path(@projeto), :class => "oi oi-plus" %></th>
                 </tr>
                 </thead>
                 <tbody>
                 <% @projeto.trabalhos.each do |trabalho| %>
                   <tr>
-                    <td><%= trabalho.usuario.nome %></td>
+                    <td><%= trabalho.usuario.nome%></td>
                     <td><%= trabalho.funcao %></td>
+                    <td><%=link_to "","/projetos/"+@projeto.id.to_s+"/trabalhos/"+trabalho.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
                   </tr>
                 <% end %>
                 </tbody>
@@ -28,7 +29,6 @@
           </div>
         </div>
       </div>
-
       <div class="atividades-projeto div-centro">
         <h2><%= @projeto.titulo %></h2>
 
@@ -50,7 +50,11 @@
                   <% @projeto.atividades.each do |atividade| %>
                     <tr>
                       <td><%= atividade.titulo %></td>
+                      <td><%= atividade.dataInicio %></td>
+                      <td><%= atividade.dataFim %></td>
+                      <td><%= atividade.status %></td>
                       <td></td>
+                      <td><%=link_to "","/projetos/"+@projeto.id.to_s+"/atividades/"+atividade.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
                     </tr>
                   <% end %>
                   </tbody>
@@ -79,6 +83,7 @@
                   <tr>
                     <td><%= bibliografia.titulo %></td>
                     <td></td>
+                    <td><%=link_to "","/projetos/"+@projeto.id.to_s+"/bibliografia/"+bibliografia.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
                   </tr>
                 <% end %>
                 </tbody>

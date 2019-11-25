@@ -16,11 +16,11 @@
       <tr>
         <td><%= trabalho.funcao %></td>
         <td><%= trabalho.usuario.email %></td>
+        <td><strong><%= link_to 'Remover integrante', [trabalho.projeto,trabalho],id:"d-#{trabalho.projeto_id}" ,method: :delete%></strong>
         <td><strong></strong></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-
-
+<%= link_to 'voltar', projeto_path(@projeto) %>
