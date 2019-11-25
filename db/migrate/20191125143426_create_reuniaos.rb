@@ -3,7 +3,7 @@ class CreateReuniaos < ActiveRecord::Migration[5.1]
     create_table :reuniaos do |t|
       t.string :nome
       t.date :data
-      t.int :tempoReuniao
+      t.integer :tempoReuniao
       t.string :observacao
       t.boolean :status
 

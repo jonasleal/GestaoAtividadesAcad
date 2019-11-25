@@ -1,5 +1,5 @@
 class TrabalhosController < ApplicationController
-  before_action :set_trabalho, only: [:show,:index, :destroy]
+  /before_action :set_trabalho, only: [:show,:index, :destroy]
   before_action :authenticate_usuario!
 
   def index
@@ -8,10 +8,10 @@ class TrabalhosController < ApplicationController
   end
 
   def show
-  end
+  end/
 
   # GET /bibliografia/new
-  def new
+  /def new
     @trabalho= Trabalho.new
     @projeto= Projeto.find(params[:projeto_id])
   end
@@ -43,5 +43,5 @@ class TrabalhosController < ApplicationController
   end
   def trabalho_params
     params.require(:trabalho).permit(:funcao, :projeto_id, :usuario_id)
-  end
+  end/
 end

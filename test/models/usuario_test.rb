@@ -19,7 +19,7 @@ class UsuarioTest < ActiveSupport::TestCase
   test 'editar usuario com senha valida' do
     usuario = Usuario.new email: 'jose34@gmail.com', password: 'senhaValida12', nome: 'jose matias', cpf: '809.098.098-00', curso: 'BCC'
     assert usuario.save
-    assert usuario.update senha: 'meuCursoBCC'
+    assert usuario.update password: 'meuCursoBCC'
   end
 
   test 'nao criar usuario invalido' do
