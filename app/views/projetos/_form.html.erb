@@ -16,7 +16,7 @@
         <table>
           <tr>
             <td>
-              Data de inicio
+              <%= form.label :dataInicio, value='Data de inicio' %>
             </td>
             <td>
               <%= form.date_select :dataInicio, id: :projeto_dataInicio %>
@@ -24,7 +24,7 @@
           </tr>
           <tr>
             <td>
-              Data de termino
+              <%= form.label :dataFin, value='Data de termino' %>
             </td>
             <td>
               <%= form.date_select :dataFin, id: :projeto_dataFin %>

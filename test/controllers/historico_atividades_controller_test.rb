@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class HistoricoAtividadesControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  /setup do
     @historico_atividade = historico_atividades(:one)
   end
 
@@ -44,5 +44,5 @@ class HistoricoAtividadesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to historico_atividades_url
-  end
+  end/
 end

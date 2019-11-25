@@ -4,36 +4,48 @@ Feature: Bibliografia
   so that eu nao ter que fazer isso manualmente
 
   Scenario: criar nova bibliografia valida
-    Given Eu crio o projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
-    And Eu estou na pagina de vizualizar ultimo projeto criado
-    When Eu preencho a bibliografia com titulo 'Sistemas' e descricao 'bibliografia para sistemas'
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And Eu abro a pagina de criar Projeto
+    When Eu estou na pagina de projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
+    And Eu clico para adicionar bibliografia
+    And Eu preencho a bibliografia com titulo 'Sistemas' e descricao 'bibliografia para sistemas'
     And Eu clico criar bibliografia
     Then Eu vejo que a bibliografia com titulo 'Sistemas' foi criada'
 
   Scenario: criar nova bibliografia com titulo em branco
-    Given Eu crio o projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
-    And Eu estou na pagina de vizualizar ultimo projeto criado
-    When Eu preencho a bibliografia com titulo '' e descricao 'bibliografia para sistemas'
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And Eu abro a pagina de criar Projeto
+    When Eu estou na pagina de projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
+    And Eu clico para adicionar bibliografia
+    And Eu preencho a bibliografia com titulo '' e descricao 'bibliografia para sistemas'
     And Eu clico criar bibliografia
     Then Eu vejo uma mensagem de erro de bibliografia
 
   Scenario: criar nova bibliografia com titutlo sem o minimo de caracteres
-    Given Eu crio o projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
-    And Eu estou na pagina de vizualizar ultimo projeto criado
-    When Eu preencho a bibliografia com titulo 'ti' e descricao 'bibliografia para sistemas'
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And Eu abro a pagina de criar Projeto
+    When Eu estou na pagina de projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
+    And Eu clico para adicionar bibliografia
+    And Eu preencho a bibliografia com titulo 'ti' e descricao 'bibliografia para sistemas'
     And Eu clico criar bibliografia
     Then Eu vejo uma mensagem de erro de bibliografia
 
   Scenario: criar nova bibliografia com descricao com numeros
-    Given Eu crio o projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
-    And Eu estou na pagina de vizualizar ultimo projeto criado
-    When Eu preencho a bibliografia com titulo 'titulo' e descricao '12'
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And Eu abro a pagina de criar Projeto
+    When Eu estou na pagina de projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
+    And Eu clico para adicionar bibliografia
+    And Eu preencho a bibliografia com titulo '' e descricao '12'
     And Eu clico criar bibliografia
     Then Eu vejo uma mensagem de erro de bibliografia
 
   Scenario: remover uma bibliografia existente
-    Given Eu crio o projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
-    And a bibliografia com titulo 'Sistemas' e descricao 'bibliografia para sistemas' do ultimo projeto criado existe
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And Eu abro a pagina de criar Projeto
+    When Eu estou na pagina de projeto com titulo 'App atividade', area 'informatica',natureza 'tcc',data de inicio '20/11/2019',data de termino '30/11/2019'
+    And Eu clico para adicionar bibliografia
+    And Eu preencho a bibliografia com titulo 'Sistemas' e descricao 'bibliografia para sistemas'
+    And Eu clico criar bibliografia
     And Eu estou na pagina de projeto pertencido pela bibliografia
-    When Eu clico em remover bibliografia com titulo 'Sistemas'
+    When Eu clico em remover bibliografia
     Then Eu vejo que a bibliografia com titulo 'Sistemas' foi removida

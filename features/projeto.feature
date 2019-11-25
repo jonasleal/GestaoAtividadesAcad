@@ -4,7 +4,8 @@ Feature: Projeto
   so that eu nao ter que fazer isso manualmente
 
   Scenario: criar novo Projeto valido
-    Given Eu abro a pagina de criar Projeto
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And Eu abro a pagina de criar Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area 'informatica'
     And natureza 'pesquisa de extensao'
@@ -14,6 +15,7 @@ Feature: Projeto
     Then Eu vejo que o projeto com titulo 'App mobile Ru' foi criado
 
   Scenario: criar novo Projeto com titulo em branco
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
     Given Eu abro a pagina de criar Projeto
     When Eu preencho o Projeto com titulo ''
     And area 'informatica'
@@ -23,8 +25,8 @@ Feature: Projeto
     And Eu clico criar projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
-
   Scenario: criar novo Projeto com area em branco
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
     Given Eu abro a pagina de criar Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area ''
@@ -35,6 +37,7 @@ Feature: Projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
   Scenario: criar novo Projeto com natureza em branco
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
     Given Eu abro a pagina de criar Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area 'informatica'
@@ -45,6 +48,7 @@ Feature: Projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
   Scenario: criar novo Projeto com data de termino no passado
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
     Given Eu abro a pagina de criar Projeto
     When Eu preencho o Projeto com titulo 'App mobile Ru'
     And area 'informatica'
@@ -55,7 +59,8 @@ Feature: Projeto
     Then Eu vejo uma mensagem erro ao criar projeto
 
   Scenario: remover um projeto existente
-    Given O projeto com titulo 'App mobile Ru', area 'informatica',natureza 'pesquisa de extensao',data de inicio '20/11/2019',data de termino '30/11/2019' existe
+    Given O usuario com email 'irisviana@gmail.com', senha '123456', nome 'iris viana', cpf '678.809.709-01', curso 'BCC' esta logado no sistema
+    And O projeto com titulo 'App mobile Ru', area 'informatica',natureza 'pesquisa de extensao',data de inicio '20/11/2019',data de termino '30/11/2019' existe
     And Eu estou na pagina de projetos
     When Eu clico em remover projeto com titulo 'App mobile Ru'
-    Then Eu vejo que o  projeto com titulo 'App mobile Ru' foi removido
+    Then Eu vejo que o projeto foi removido
