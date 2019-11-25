@@ -11,7 +11,7 @@ When("Eu estou na pagina de projeto com titulo {string}, area {string},natureza 
   strData = data.strftime("%Y/%B/%d/")
   select_date(strData,:from => "Data de termino")
   click_button 'Salvar'
-  expect(page).to have_content('Projeto was successfully created.')
+  page.find("div#alertaSucesso")
   expect(page).to have_content(titulo)
 end
 
@@ -31,7 +31,7 @@ end
 
 Then("Eu vejo que a bibliografia com titulo {string} foi criada'") do |titulo|
   expect(page).to have_content(titulo)
-  expect(page).to have_content('Bibliografium was successfully created.')
+  page.find("div#alertaSucesso")
 end
 
 Given("a bibliografia com titulo {string} e descricao {string} do ultimo projeto criado existe") do |titulo, descricao|
@@ -58,5 +58,5 @@ end
 /Criar bibliografia invalida/
 
 Then("Eu vejo uma mensagem de erro de bibliografia") do
-  expect(page).to have_content("prohibited this projeto from being saved")
+  page.find("div#alertaErro")
 end

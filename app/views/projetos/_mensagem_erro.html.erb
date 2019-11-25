@@ -1,7 +1,6 @@
 
 <% if projeto.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
-
+  <div id='alertaErro' class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
     <div>
       <h4>
         <%= pluralize(projeto.errors.count, "error") %> proibe esse projeto de ser salvo:

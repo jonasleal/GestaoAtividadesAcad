@@ -8,7 +8,7 @@ def criarAtividade(tituloAtiv, dataInicio, dataFim, cargaPrev, descricao)
   fill_in 'atividade[descricao]', with: descricao
   click_button 'Adicionar'
   expect(page).to have_content(tituloAtiv)
-  expect(page).to have_content('Atividade was successfully created.')
+  page.find("div#alertaSucesso")
 end
 
 And("Eu clico para adicionar atividade") do
@@ -34,7 +34,7 @@ end
 
 Then('Eu vejo que a atividade com titulo {string} foi atualizada') do |titulo|
   expect(page).to have_content(titulo)
-  expect(page).to have_content('Atividade was successfully updated.')
+  assert_selector("div#alertaSucesso")
 end
 
 And('A atividade com titulo {string} existe') do |tituloAtiv|
@@ -61,11 +61,11 @@ end
 
 Then('Eu vejo que a atividade com titulo {string} foi criada') do |titulo|
   expect(page).to have_content(titulo)
-  expect(page).to have_content('Atividade was successfully created.')
+  page.find("div#alertaSucesso")
 end
 
 Then('Eu vejo uma mensagem de erro de atividade') do
-  expect(page).to have_content('prohibited this projeto from being saved')
+  page.find("div#alertaErro")
 end
 
 And('Preencho o campo Titulo de atividade com {string}') do |titulo|

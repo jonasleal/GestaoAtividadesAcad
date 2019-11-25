@@ -46,11 +46,11 @@ end
 
 Then('Eu vejo que o projeto com titulo {string} foi criado') do |titulo|
   expect(page).to have_content(titulo)
-  expect(page).to have_content('Projeto was successfully created.')
+  page.find("div#alertaSucesso")
 end
 
 Then('Eu vejo uma mensagem erro ao criar projeto') do
-  expect(page).to have_content('prohibited this projeto from being saved')
+  page.find("div#alertaErro")
 end
 
 And("O projeto com titulo {string}, area {string},natureza {string},data de inicio {string},data de termino {string} existe") do |titulo,area,natureza, dataInicio,dataFim|
@@ -66,7 +66,7 @@ And("O projeto com titulo {string}, area {string},natureza {string},data de inic
   strData = data.strftime("%Y/%B/%d/")
   select_date(strData,:from => "Data de termino")
   click_button 'Salvar'
-  expect(page).to have_content('Projeto was successfully created.')
+  page.find("div#alertaSucesso")
   expect(page).to have_content(titulo)
 end
 

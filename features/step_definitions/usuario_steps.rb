@@ -70,7 +70,7 @@ And('Eu clico em editar usuario') do
 end
 
 Then('Eu vejo uma mensagem de erro') do
-  expect(page).to have_content('prohibited this usuario from being saved')
+  page.find("div#alertaErro")
 end
 
 /Editar usuario com senha valida/
@@ -82,7 +82,7 @@ When('Eu modifico a senha do usuario para de {string} para {string}') do |senhaA
 end
 
 Then('Eu vejo que o usuario foi atualizado com sucesso') do
-  expect(page).to have_content('Your account has been updated successfully.')
+  page.find("div#alertaSucesso")
 end
 
 Given("Eu estou na pagina de usuarios") do
@@ -90,11 +90,11 @@ Given("Eu estou na pagina de usuarios") do
   expect(page).to have_current_path('/usuarios')
 end
 
-When("Eu clico em cancelar conta do usuario com email {string}") do |email|
-  click_link "d-#{email}"
+And("Eu clico em cancelar conta") do
+  click_button "Cancelar conta"
+  page.driver.browser.switch_to.alert.accept
 end
 
-Then("Eu vejo que o usuairo com email {string} foi removido") do |email|
-  visit '/usuarios'
-  expect(page).to have_no_content(email)
+Then("Eu vejo a tela de login") do
+  page.find("div#login")
 end
