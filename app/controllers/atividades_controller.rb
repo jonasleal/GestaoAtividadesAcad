@@ -62,9 +62,11 @@ class AtividadesController < ApplicationController
   # DELETE /atividades/1
   # DELETE /atividades/1.json
   def destroy
+    @projeto = Projeto.find(params[:projeto_id])
+    @atividade = @projeto.atividades.find(params[:id])
     @atividade.destroy
     respond_to do |format|
-      format.html { redirect_to atividades_url, notice: 'Atividade was successfully destroyed.' }
+      format.html { redirect_to projeto_path(@projeto), notice: 'Atividade was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
