@@ -1,27 +1,32 @@
-<%= form_for([@projeto,trabalho], local: true) do |form| %>
-  <% if @projeto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this trabalho from being saved:</h2>
+<div>
+  <%= form_for([@projeto,trabalho], local: true) do |form| %>
+    <div class="row">
+      <div class="col-sm">
+        <%= form.label :funcao%>
+      </div>
+      <div class="col-sm">
+        <%= form.select("funcao",['Estudante','Professor colaborador']) %>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= form.label :usuario_id%>
+      </div>
+      <div class="col-sm" >
+        <%= form.collection_select(:usuario_id , Usuario.all, :id, :email, prompt: true)%>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-sm div-centro">
+        <%= link_to 'Voltar', projeto_path(@projeto), :class => "btn btn-primary "  %>
+      </div>
+      <div class="col-sm div-centro">
+        <%= form.submit value='Salvar' , :class => "btn btn-primary" %>
+      </div>
 
-      <ul>
-        <% @projeto.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :funcao %>
-    <%= form.select("funcao",['Estudante','Professor colaborador'])%>
-  </div>
-
-  <div class="field">
-    <%= form.label :usuario_id %>
-    <%= form.collection_select(:usuario_id , Usuario.all, :id, :email, prompt: true)%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

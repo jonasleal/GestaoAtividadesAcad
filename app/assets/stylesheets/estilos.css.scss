@@ -46,11 +46,12 @@ textarea.bibliografia-descricao{
   resize: none;
 }
 textarea.descricao{
-  height: 245px;
+  height: 180px;
   resize: none;
 }
 .nova-atividade{
   width: 600px;
+  height: 350px;
 }
 .integrantes-projeto, .bibliografia-projeto, .atividades-projeto{
   height: auto;
@@ -62,6 +63,9 @@ textarea.descricao{
 }
 .oi-plus{
   color: green;
+}
+.oi-x{
+ color: #B00100;
 }
 .projetos{
   width: 750px;
