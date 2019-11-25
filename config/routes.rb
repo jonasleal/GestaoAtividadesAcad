@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :historico_atividades
     end
   end
+
   resources :usuarios
 
 

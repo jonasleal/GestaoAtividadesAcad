@@ -3,7 +3,7 @@
   <div class="col-sm">
     <div class="row">
       <div class="col-sm">
-        <%= form.text_field :titulo, id: :atividade_titulo,:class => "form-control", placeholder: "Titulo" %>
+        <%= form.text_field :titulo, id: :atividade_titulo,:class => "form-control", placeholder: "Título" %>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -13,7 +13,7 @@
         </tr>
         <tr>
           <td>
-            Inicio
+            <%= form.label :dataInicio, value='Início' %>
           </td>
           <td>
             <%= form.date_select :dataInicio, id: :atividade_dataInicio %>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
           <td>
-            Fim
+            <%= form.label :dataFim, value='Fim' %>
           </td>
           <td>
             <%= form.date_select :dataFim, id: :atividade_dataFim %>

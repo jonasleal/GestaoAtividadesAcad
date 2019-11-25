@@ -1,98 +1,88 @@
-Given('O projeto com titulo {string} existe') do |titulo|
-  criarProjeto(titulo, 'area', 'tipo', Date.current.strftime('%Y/%B/%d/'), (Date.current + 1.month).strftime('%Y/%B/%d/'))
-end
-
-def criarProjeto(titulo, area, tipo, dataInicio, dataFim)
-  visit '/projetos/new'
-  fill_in 'projeto[titulo]', with: titulo
-  fill_in 'projeto[area]', with: area
-  fill_in 'projeto[tipoProjeto]', with: tipo
-  select_date(dataInicio,:from => 'Data de inicio')
-  select_date(dataFim,:from => "Data de termino")
-  click_button 'Criar projeto'
-  expect(page).to have_content(titulo)
-
-end
-
-def criarAtividade(tituloProj,tituloAtiv, dataInicio, dataFim,cargaPrev, descricao)
-  visit '/projetos'
-  click_link "s-#{tituloProj}"
-  expect(page).to have_content('Adicionando Atividades:')
+def criarAtividade(tituloAtiv, dataInicio, dataFim, cargaPrev, descricao)
+  click_link 'Adicionar'
+  expect(page).to have_content('New Atividade')
   fill_in 'atividade[titulo]', with: tituloAtiv
   select_date(dataInicio,:from => 'Data de inicio')
   select_date(dataFim,:from => "Data de termino")
   fill_in 'atividade[cargaPrev]', with: cargaPrev
   fill_in 'atividade[descricao]', with: descricao
-  click_button 'adcAtividade'
+  click_button 'Adicionar'
   expect(page).to have_content(tituloAtiv)
+  expect(page).to have_content('Atividade was successfully created.')
 end
 
-When('Eu visualizo o Projeto com titulo {string}') do |titulo|
-  visit '/projetos/'
-  click_link "s-#{titulo}"
-  expect(page).to have_content('Adicionando Atividades:')
+And("Eu clico para adicionar atividade") do
+  find('th#addBibliografia').click
 end
 
-And('preencho o campo Titulo de atividade com {string}') do |titulo|
+And('Eu preencho a atividade com titulo {string}, data de inicio com {string}, data de termino da atividade com {string}, carga prevista com {string} e com descricao {string}') do |titulo, dataInicio, dataFim, cargaPrev, descricao|
+  visit '/projetos/' + Projeto.last.id.to_s + '/atividades/new'
   fill_in 'atividade[titulo]', with: titulo
-end
-
-And('data de inicio da ativade com {string}') do|dataInicio|
   data = Date.strptime(dataInicio, '%d/%m/%Y')
   strData = data.strftime('%Y/%B/%d/')
-  select_date(strData,:from => 'Data de inicio')
-end
-
-And('data de termino da atividade com {string}') do |dataFim|
+  select_date(strData, :from => 'Início')
   data = Date.strptime(dataFim, '%d/%m/%Y')
   strData = data.strftime('%Y/%B/%d/')
-  select_date(strData,:from => 'Data de termino')
-end
-
-And('preencho carga prevista da atividade com {string}') do |cargaPrev|
+  select_date(strData, :from => 'Fim')
   fill_in 'atividade[cargaPrev]', with: cargaPrev
-end
-
-And('descriçao da atividade com {string}') do |descricao|
   fill_in 'atividade[descricao]', with: descricao
 end
 
-And('clico no botao Adicionar') do
-  click_button 'adcAtividade'
+And('Clico no botao Adicionar') do
+  click_button 'Adicionar'
 end
 
-Then('Eu vejo que a atividade com titulo {string} foi criado') do |titulo|
+Then('Eu vejo que a atividade com titulo {string} foi atualizada') do |titulo|
   expect(page).to have_content(titulo)
+  expect(page).to have_content('Atividade was successfully updated.')
 end
 
-And('no projeto {string} a atividade com titulo {string} existe') do |tituloProj, tituloAtiv|
-  criarAtividade(tituloProj,tituloAtiv,(Date.current + 1.day).strftime('%Y/%B/%d/'),
+And('A atividade com titulo {string} existe') do |tituloAtiv|
+  criarAtividade(tituloAtiv,(Date.current + 1.day).strftime('%Y/%B/%d/'),
                  (Date.current + 10.day).strftime('%Y/%B/%d/'), "10", "Entrega da primeira atividade")
-
 end
 
-When('clico em editar da atividade com titulo {string}') do |titulo|
+When('Clico em editar da atividade com titulo {string}') do |titulo|
   click_link "e-#{titulo}"
 end
 
-And('clico no botao atualizar') do
-  click_button 'atuAtividade'
+And('Eu clico em atualizar') do
+  click_button 'Update Atividade'
 end
 
+When('Clico em excluir da atividade') do
+  find("td#deleteAtivi").click
+end
 
-When('clico em excluir da atividade com titulo {string}') do |titulo|
-  click_link "d-#{titulo}"
+Then('Eu vejo que a atividade com titulo {string} foi apagada') do |titulo|
+  expect(page).to have_no_content(titulo)
+  expect(page).to have_content('Atividade was successfully destroyed.')
+end
+
+Then('Eu vejo que a atividade com titulo {string} foi criada') do |titulo|
+  expect(page).to have_content(titulo)
+  expect(page).to have_content('Atividade was successfully created.')
+end
+
+Then('Eu vejo uma mensagem de erro de atividade') do
+  expect(page).to have_content('prohibited this projeto from being saved')
+end
+
+And('Preencho o campo Titulo de atividade com {string}') do |titulo|
+  fill_in 'atividade[titulo]', with: titulo
+end
+
+And('Preencho o campo carga prevista de atividade com {string}') do |cargaprev|
+  fill_in 'atividade[cargaPrev]', with: cargaprev
+end
+
+And('Preencho o campo carga realizada de atividade com {string}') do |cargarealizada|
+  fill_in 'atividade[cargaReal]', with: cargarealizada
 end
 
 Then('Eu vejo que a atividade com titulo {string} foi apagada') do |titulo|
   expect(page).to have_no_content(titulo)
 end
-
-
-Then('Eu vejo uma mensagem de erro de atividade') do
-  assert_selector('h2#alert', text: "")
-end
-
 
 And('preencho carga realizada da atividade com {string}') do |cargaReal|
   fill_in 'atividade[cargaReal]', with: cargaReal

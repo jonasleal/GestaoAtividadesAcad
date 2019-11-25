@@ -43,7 +43,7 @@
                     <th scope="col">Fim</th>
                     <th scope="col">Status</th>
                     <th scope="col"></th>
-                    <th scope="col"><%=link_to "", new_projeto_atividade_path(@projeto), :class => "oi oi-plus" %></th>
+                    <th scope="col", id="addAtividade"><%=link_to "", new_projeto_atividade_path(@projeto), :class => "oi oi-plus" %></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -54,7 +54,7 @@
                       <td><%= atividade.dataFim %></td>
                       <td><%= atividade.status %></td>
                       <td></td>
-                      <td><%=link_to "","/projetos/"+@projeto.id.to_s+"/atividades/"+atividade.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
+                      <td id="deleteAtivi"><%=link_to "","/projetos/"+@projeto.id.to_s+"/atividades/"+atividade.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
                     </tr>
                   <% end %>
                   </tbody>
@@ -75,7 +75,7 @@
                 <tr>
                   <th scope="col">Titulo</th>
                   <th scope="col"></th>
-                  <th scope="col"><%= link_to "",new_projeto_bibliografium_path(@projeto), :class =>"oi oi-plus"%></th>
+                  <th scope="col", id="addBibliografia"><%= link_to "",new_projeto_bibliografium_path(@projeto), :class =>"oi oi-plus"%></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -83,7 +83,7 @@
                   <tr>
                     <td><%= bibliografia.titulo %></td>
                     <td></td>
-                    <td><%=link_to "","/projetos/"+@projeto.id.to_s+"/bibliografia/"+bibliografia.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
+                    <td id="delete"><%=link_to  "", "/projetos/"+@projeto.id.to_s+"/bibliografia/"+bibliografia.id.to_s, :method => "DELETE" , :class => "oi oi-x" %></td>
                   </tr>
                 <% end %>
                 </tbody>
