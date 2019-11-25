@@ -1,39 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<h1><strong>Projetos</strong><hr/></h1>
-<%= link_to 'Novo projeto', new_projeto_path %>
-<br>
-<ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="color:#800000;"><pre ><font size="5">Título:</font></pre></th>
-      <th style="color:#800000;"><pre><font size="5">Área:</font></pre></th>
-      <th style="color:#800000;"><pre><font size="5">Data de fim:</font></pre></th>
-      <th style="color:#800000;"><pre><font size="5">Data de início</font> </pre></th>
-      <th style="color:#800000;"><pre><font size="5">Tipo do projeto:</font></pre></th>
-      <th style="color:#800000;" colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projetos.each do |projeto| %>
+<div class="container-fluid textoCentralizado projetos rotulo">
+  <h2><strong>Projetos</strong></h2>
+  <div class="row-sm">
+    <table class="table table-hover table-dark">
+      <thead>
       <tr>
-        <td><%= projeto.titulo %></td>
-        <td><%= projeto.area %></td>
-        <td><%= projeto.dataFin %></td>
-        <td><%= projeto.dataInicio %></td>
-        <td><%= projeto.tipoProjeto %></td>
-        <td><strong><%= link_to 'Vizualizar', projeto, id:"s-#{projeto.titulo}" %></strong></td>
-        <td><strong><%= link_to 'Editar', edit_projeto_path(projeto)%></strong></td>
-        <td><strong><%= link_to 'Cancelar', projeto,id:"d-#{projeto.titulo}", method: :delete %></strong></td>
+
+        <th scope="col">Nome</th>
+        <th scope="col">Área</th>
+        <th scope="col">Natureza</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+        <th scope="col"><%= link_to "",new_projeto_path, :class =>"oi oi-plus"%></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-</ul>
-<br>
-
-
-<%= link_to 'voltar', 'welcome/index'%>
+      </thead>
+      <tbody>
+      <% @projetos.each do |projeto| %>
+        <tr>
+          <td><%= link_to projeto.titulo, projeto, id:"s-#{projeto.titulo}" %></td>
+          <td><%= projeto.area %></td>
+          <td><%= projeto.tipoProjeto %></td>
+          <td><strong></strong></td>
+          <td><strong><%= link_to 'Editar', edit_projeto_path(projeto)%></strong></td>
+          <td><strong><%= link_to 'Cancelar', projeto,id:"d-#{projeto.titulo}", method: :delete %></strong></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

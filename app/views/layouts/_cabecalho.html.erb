@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-light">
+
+  <div class="dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Projetos
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%= link_to 'Listar projetos', projetos_path(current_usuario.projetos), :class => "dropdown-item"%>
+      <div class="dropdown-divider"></div>
+      <%= link_to 'Novo projeto', new_projeto_path, :class => "dropdown-item" %>
+
+    </div>
+
+  </div>
+  <%if usuario_signed_in?%>
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="usuarioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Bem vindo <%= current_usuario.nome %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="usuarioDropdown">
+        <%= link_to 'Editar',  edit_usuario_registration_path(current_usuario), :class => "dropdown-item"%>
+      </div>
+    </div>
+    <%= link_to 'Sair', destroy_usuario_session_path, :method => :delete, :class => "btn btn-outline-secondary"%>
+  <%else %>
+    <% redirect_to new_session_path(resource_name) %>
+  <%end %>
+</nav>

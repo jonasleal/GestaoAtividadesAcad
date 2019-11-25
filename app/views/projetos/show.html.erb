@@ -1,35 +1,113 @@
-<p id="notice"><%= notice %></p>
 
-<h2 id="alert" style="font-weight: bold; color: red"><%= alert %></h2>
+<div class="grid-container-projeto rotulo">
 
-<p>
-<h1><strong>Projeto</strong></h1>
-  <%= @projeto.titulo %><hr/>
-</p>
+      <div class="integrantes-projeto div-centro">
+        <h3>Integrantes</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
 
+              <table class="table table-hover table-dark">
+                <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Função</th>
+                  <th scope="col"><%=link_to "", new_projeto_trabalho_path(@projeto), :class => "oi oi-plus" %></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @projeto.trabalhos.each do |trabalho| %>
+                  <tr>
+                    <td><%= trabalho.usuario.nome%></td>
+                    <td><%= trabalho.funcao %></td>
+                    <td><%=link_to "","/projetos/"+@projeto.id.to_s+"/trabalhos/"+trabalho.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="atividades-projeto div-centro">
+        <h2><%= @projeto.titulo %></h2>
 
-<h2>Integrantes</h2>
-<%= render @projeto.trabalhos%>
+        <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <table class="table table-hover table-dark">
+                  <thead>
+                  <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Inicio</th>
+                    <th scope="col">Fim</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col", id="addAtividade"><%=link_to "", new_projeto_atividade_path(@projeto), :class => "oi oi-plus" %></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @projeto.atividades.each do |atividade| %>
+                    <tr>
+                      <td><%= atividade.titulo %></td>
+                      <td><%= atividade.dataInicio %></td>
+                      <td><%= atividade.dataFim %></td>
+                      <td><%= atividade.status %></td>
+                      <td></td>
+                      <td id="deleteAtivi"><%=link_to "","/projetos/"+@projeto.id.to_s+"/atividades/"+atividade.id.to_s, :method => "DELETE" ,:class => "oi oi-x" %></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
 
-<h2>Adicionando integrantes:</h2>
-<%= render 'trabalhos/form' %>
-<p>
+      <div class="bibliografia-projeto div-centro">
+        <h3>Bibliográfias</h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
 
-<h2>Bibliográfias</h2>
-<%=  render @projeto.bibliografia%>
-</p>
+              <table class="table table-hover table-dark">
+                <thead>
+                <tr>
+                  <th scope="col">Titulo</th>
+                  <th scope="col"></th>
+                  <th scope="col", id="addBibliografia"><%= link_to "",new_projeto_bibliografium_path(@projeto), :class =>"oi oi-plus"%></th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @projeto.bibliografia.each do |bibliografia| %>
+                  <tr>
+                    <td><%= bibliografia.titulo %></td>
+                    <td></td>
+                    <td id="delete"><%=link_to  "", "/projetos/"+@projeto.id.to_s+"/bibliografia/"+bibliografia.id.to_s, :method => "DELETE" , :class => "oi oi-x" %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<% if notice %>
+  <div id="alertaSucesso" class="alert alert-success alert-dismissible fade show alertaFlutuante" role="alert">
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% end %>
 
-<h2>Adicionando bibliografias:</h2>
-<%= link_to "novo",new_projeto_bibliografium_path(@projeto)%>
-
-<h2>Lista de  Atividades:</h2>
-<%= render @projeto.atividades %>
-<p>
-
-<h2>Adicionando Atividades:</h2>
-<%= render 'atividades/form' %>
-<p>
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %>
-<h2>Adicionando bibliografias:</h2>
+<% if alert %>
+  <div id="alertaErro" class="alert alert-danger alert-dismissible fade show alertaFlutuante" role="alert">
+    <%= alert %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
 

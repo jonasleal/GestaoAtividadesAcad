@@ -1,48 +1,70 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="cadastro">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="col-sm rotulo textoCentralizado" >
+      <h2>Cadastre-se</h2>
+    </div>
   </div>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class => "form-control", placeholder: "E-mail" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :password, autocomplete: "new-password" ,:class => "form-control", placeholder: "Senha" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,:class => "form-control", placeholder: "Confirme a senha" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :nome, id: :usuario_nome,:class => "form-control", placeholder: "Nome" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :cpf, id: :usuario_cpf,:class => "form-control", placeholder: "CPF ###.###.###-##" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.text_field :curso, id: :usuario_curso,:class => "form-control", placeholder: "Curso" %>
+      </div>
+    </div><br/>
+    <div class="row">
+      <div class="col-sm div-centro">
+        <%= link_to 'Voltar', new_session_path(resource_name) , :class => "btn btn-primary" %>
+      </div>
+      <div class="col-sm div-centro">
+        <%= f.submit "Salvar", :class => "btn btn-primary"%>
+      </div>
+    </div><br/>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+</div>
+    <% if resource.errors.any? %>
+      <div id='alertaErro' class="alert alert-danger alert-dismissible fade show alertaCadastro" role="alert">
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div >
+          <h4>
+            <%= I18n.t("errors.messages.not_saved",
+                       count: resource.errors.count,
+                       resource: resource.class.model_name.human.downcase)
+            %>
+          </h4>
+          <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome, id: :usuario_nome %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cpf %>
-    <%= f.text_field :cpf, id: :usuario_cpf %>
-  </div>
-
-  <div class="field">
-    <%= f.label :curso %>
-    <%= f.text_field :curso, id: :usuario_curso %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Especificação" %>
-    <%= f.select :especificao, ['Estudante','Professor Colaborador'], id: :usuario_especificao%>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "usuarios/shared/links" %>

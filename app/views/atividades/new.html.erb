@@ -1,5 +1,17 @@
-<h1>New Atividade</h1>
+<div class="div-centro">
 
-<%= render 'form', atividade: @atividade %>
+  <div class="container nova-atividade rotulo">
 
-<%= link_to 'Back', atividades_path %>
+    <div class="row-sm div-centro">
+      <h2>New Atividade</h2>
+    </div>
+    <div class="row-sm">
+
+
+      <%= render 'form', atividade: @atividade %>
+
+    </div>
+
+  </div>
+  <%= render 'mensagem_erro', atividade: @atividade %>
+</div>

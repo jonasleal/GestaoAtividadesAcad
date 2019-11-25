@@ -12,12 +12,6 @@ class Usuario < ApplicationRecord
 
             format: {with: /\A[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}\z/,
                      message: "deve seguir o formato: 000.000.000-00"}
-  validates :senha, presence: {message: " nao pode ser em branco" },
-            length: {minimum: 6,too_short: "deve ter pelo menos 6 caracteres" }
-
-  validates :especificao, presence: {message: " nao pode ser em branco" },
-            length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
   validates :curso, presence: {message: " nao pode ser em branco" },
             length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
-
 end

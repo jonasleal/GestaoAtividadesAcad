@@ -1,0 +1,17 @@
+<%= form_with(model: reuniao, local: true) do |form| %>
+  <% if reuniao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reuniao.errors.count, "error") %> prohibited this reuniao from being saved:</h2>
+
+      <ul>
+      <% reuniao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

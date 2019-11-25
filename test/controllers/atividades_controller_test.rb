@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AtividadesControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  /setup do
     @atividade = atividades(:one)
   end
 
@@ -44,5 +44,5 @@ class AtividadesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to atividades_url
-  end
+  /
 end

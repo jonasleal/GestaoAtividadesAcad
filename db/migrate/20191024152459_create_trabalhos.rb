@@ -4,7 +4,7 @@ class CreateTrabalhos < ActiveRecord::Migration[5.1]
       t.string :funcao
       t.references :projeto, foreign_key: true
       t.references :usuario, foreign_key: true
-
+      t.boolean :status
       t.timestamps
     end
   end

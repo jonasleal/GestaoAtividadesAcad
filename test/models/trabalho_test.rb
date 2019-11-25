@@ -5,7 +5,7 @@ class TrabalhoTest < ActiveSupport::TestCase
   #   assert true
   # end
   test 'criar trabalho valido' do
-    usuario = Usuario.new email: 'jose34@gmail.com', senha: 'senhaValida12', nome: 'jose matias', cpf: '809.098.098-00', curso: 'BCC', especificao: 'Professor Colaborador'
+    usuario = Usuario.new email: 'jose34@gmail.com', password: 'senhaValida12', nome: 'jose matias', cpf: '809.098.098-00', curso: 'BCC'
     assert usuario.save
 
     projeto= Projeto.new titulo:"Gestao de projeto", area:"Informatica", dataFin:"20/10/2020", dataInicio:"20/10/2019", tipoProjeto:"tcc"
@@ -15,7 +15,7 @@ class TrabalhoTest < ActiveSupport::TestCase
     assert trabalho.save
   end
   test 'remover trabalho valido' do
-    usuario = Usuario.new email: 'jose34@gmail.com', senha: 'senhaValida12', nome: 'jose matias', cpf: '809.098.098-00', curso: 'BCC', especificao: 'Professor Colaborador'
+    usuario = Usuario.new email: 'jose34@gmail.com', password: 'senhaValida12', nome: 'jose matias', cpf: '809.098.098-00', curso: 'BCC'
     assert usuario.save
 
     projeto= Projeto.new titulo:"Gestao de projeto", area:"Informatica", dataFin:"20/10/2020", dataInicio:"20/10/2019", tipoProjeto:"tcc"

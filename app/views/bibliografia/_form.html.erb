@@ -1,27 +1,22 @@
 <%= form_for([@projeto,bibliografium], local: true) do |form| %>
-  <% if @projeto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@projeto.errors.count, "error") %> prohibited this bibliografium from being saved:</h2>
-
-      <ul>
-      <% @projeto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row justify-content-center">
+    <div class="col-sm">
+      <%= form.text_field :titulo, id: :bibliografium_titulo,:class => "form-control", placeholder: "Titulo" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, id: :bibliografium_titulo %>
   </div>
-
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_field :descricao, id: :bibliografium_descricao %>
+  <br/>
+  <div class="row">
+    <div class="col-sm" >
+      <%= form.text_area :descricao, id: :bibliografium_descricao,:class => "form-control bibliografia-descricao", placeholder: "Descrição"  %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit value='Criar bibliografia'%>
+  <br/>
+  <div class="row">
+    <div class="col-sm div-centro" >
+      <%= link_to 'Voltar', projeto_path(@projeto) , :class => "btn btn-primary" %>
+    </div>
+    <div class="col-sm div-centro">
+      <%= form.submit value='Criar' , :class => "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

@@ -1,4 +1,16 @@
-<h1>New Bibliografium</h1>
+<div class="div-centro">
+  <div class="container nova-bibliografia rotulo">
 
-<%= render 'form', bibliografium: @bibliografium %>
+    <div class="row-sm div-centro">
+      <h2>Nova bibliografia</h2>
+    </div>
+    <div class="row-sm">
+
+      <%= render 'form', bibliografium: @bibliografium %>
+      <%= link_to 'voltar', projeto_path(@projeto) %>
+    </div>
+
+  </div>
+  <%= render 'mensagem_erro', bibliografium: @bibliografium %>
+</div>
 

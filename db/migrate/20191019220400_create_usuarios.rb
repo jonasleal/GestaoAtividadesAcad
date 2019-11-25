@@ -4,7 +4,7 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
       t.string :nome
       t.string :cpf
       t.string :curso
-      t.string :especificao
+      t.boolean :status
 
       t.timestamps
     end

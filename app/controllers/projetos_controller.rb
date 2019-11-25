@@ -1,13 +1,12 @@
 class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_usuario!
-
   # GET /projetos
   # GET /projetos.json
   def index
-    @projetos = current_usuario.projetos
-  end
+    @projetos=Projeto.projetosAtivos(current_usuario.projetos)
 
+  end
   # GET /projetos/1
   # GET /projetos/1.json
   def show
@@ -15,7 +14,7 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/new
   def new
-    @projeto = Projeto.new
+    @projeto = Projeto.new()
   end
 
   # GET /projetos/1/edit
@@ -26,10 +25,10 @@ class ProjetosController < ApplicationController
   # POST /projetos.json
   def create
     @projeto = current_usuario.projetos.create(projeto_params)
-
+    @projeto.status=true
     respond_to do |format|
       if @projeto.save
-        format.html { redirect_to @projeto, notice: 'Projeto was successfully created.' }
+        format.html { redirect_to @projeto, notice: 'Projeto salvo com sucesso.' }
         format.json { render :show, status: :created, location: @projeto }
       else
         format.html { render :new }

@@ -4,7 +4,8 @@ class BibliografiaController < ApplicationController
   # GET /bibliografia
   # GET /bibliografia.json
   def index
-    @bibliografia = Bibliografium.all
+    @projeto= Projeto.find(params[:projeto_id])
+    @bibliografia=@projeto.bibliografia
   end
 
   # GET /bibliografia/1
@@ -27,14 +28,14 @@ class BibliografiaController < ApplicationController
   def create
     @projeto= Projeto.find(params[:projeto_id])
     @bibliografium = @projeto.bibliografia.create(bibliografium_params)
-
     respond_to do |format|
+      #redirect_to projeto_path(@projeto)
       if @bibliografium.save
-        format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografium was successfully created.' }
-        #format.json { render :show, status: :ok, location: projeto_path(@projeto) }
+        format.html { redirect_to projeto_path(@projeto), notice: 'Bibliografia salva com sucesso.' }
+        format.json { render :show, status: :created, location: @bibliografium }
       else
-        format.html { redirect_to projeto_path(@projeto), alert: "Erro ao adicionar bibliografia"}
-        #format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
+        format.html { render :new }
+        format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
       end
     end
 
@@ -45,13 +46,15 @@ class BibliografiaController < ApplicationController
   def update
     respond_to do |format|
       if @bibliografium.update(bibliografium_params)
-        format.html { redirect_to @bibliografium, notice: 'Bibliografium was successfully updated.' }
+        format.html { redirect_to @bibliografium, notice: 'Bibliografia editada com sucesso.' }
         format.json { render :show, status: :ok, location: @bibliografium }
       else
         format.html { render :edit }
         format.json { render json: @bibliografium.errors, status: :unprocessable_entity }
       end
+
     end
+
   end
 
   # DELETE /bibliografia/1

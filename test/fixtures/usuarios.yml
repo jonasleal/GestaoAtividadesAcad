@@ -2,16 +2,12 @@
 
 one:
   email: MyString
-  senha: MyString
   nome: MyString
   cpf: MyString
   curso: MyString
-  especificao: MyString
 
 two:
   email: MyString
-  senha: MyString
   nome: MyString
   cpf: MyString
   curso: MyString
-  especificao: MyString
