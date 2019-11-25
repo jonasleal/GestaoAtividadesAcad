@@ -16,5 +16,4 @@ class Usuario < ApplicationRecord
             length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
   validates :curso, presence: {message: " nao pode ser em branco" },
             length: {minimum: 3,too_short: "deve ter pelo menos 3 caracteres" }
-
 end

@@ -15,6 +15,14 @@ class Projeto < ApplicationRecord
   def validarData
     errors.add(:dataFin, "não pode ser antes da data de inicio") if dataFin < dataInicio
   end
+  def self.projetosAtivos(projetoUsuario)
+    projetos = []
+    projetoUsuario.each do |pg|
+    if pg.status.eql?(true)
+      projetos << pg
+    end
+    end
+    projetos
 
-
-end
+    end
+  end
